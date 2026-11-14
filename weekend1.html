@@ -350,6 +350,28 @@ table.rec td.detail{font-size:12.5px;color:var(--ink2);line-height:1.7;max-width
 .rev-key{display:inline;margin-left:6px;color:#0f7b45;font-style:normal;font-size:12.5px;text-decoration:none;white-space:nowrap}
 .res-actions .btn{height:40px}
 
+/* ---------- 真题：分页 / 分栏 / 高亮 ---------- */
+.note-instr{font-size:15px;font-weight:650;color:#232936;margin:12px 0 6px;line-height:1.7}
+.steps{display:flex;gap:8px;justify-content:center;margin:4px 0 18px;flex-wrap:wrap}
+.steps span{font-size:12.5px;color:#7a8290;border:1px solid #dfe4ec;background:#fff;border-radius:999px;padding:5px 14px}
+.steps span.on{background:#1f4fd8;border-color:#1f4fd8;color:#fff;font-weight:600}
+.steps span.done{color:#0f7b45;border-color:#cfe8d9;background:#f3fbf6}
+.cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin:26px 0 44px}
+.cta-note{font-size:12.5px;color:#8a9099;text-align:center}
+.timer{font-size:13px;color:#1f4fd8;font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}
+.timer.warn{color:#c0392b}
+.split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px;align-items:start;margin-top:12px}
+.split .pane{min-width:0}
+.split .passage{max-height:70vh;overflow:auto;margin:0}
+.split .passage p{font-size:13.2px;line-height:1.85}
+.split .notes-table .blank{width:118px}
+.split .n-bullet{font-size:13.5px;line-height:2.6}
+.split .n-row{padding:9px 12px;grid-template-columns:170px 1fr;gap:10px}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split .passage{max-height:none}}
+mark.hl{background:#ffef9f;color:inherit;padding:0 1px;border-radius:2px}
+.hl-btn{position:absolute;z-index:99;border:0;border-radius:8px;background:#1f4fd8;color:#fff;
+  font-size:12.5px;padding:6px 12px;cursor:pointer;box-shadow:0 6px 16px rgba(20,40,90,.25)}
+
 </style>
 </head>
 <body>
@@ -437,7 +459,7 @@ table.rec td.detail{font-size:12.5px;color:var(--ink2);line-height:1.7;max-width
 </div>
 
 <script>
-window.__QUIZ__ = {"meta":{"brand":"学为贵","course":"6.5 第一周","title":"第一周周末测试","subtitle":"听力 Section 1 · 阅读 Passage","minutes":25,"quizId":"real-6.5-w1-20261114-235256","intro":"共 16 题 · 听力音频点「开始播放」后播放一遍 · 每空 1 分，满分 16 分 · 提交后立刻出分。","supabaseUrl":"https://ulqqkenxnbzoxaqrdtgg.supabase.co","supabaseAnonKey":"sb_publishable_m3whnOXaHbvvL7ODe4scmA_KK5EhTa7","relayUrl":"","文件名":"weekend1.html","build":"2026-11-15 00:14","submitUrl":""},"sections":[{"id":"listen1","no":"一","title":"Section 1 · 听力笔记填空","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":1},{"no":2},{"no":3},{"no":4},{"no":5},{"no":6},{"no":7},{"no":8},{"no":9},{"no":10}],"instruction":"Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.","heading":"Driving school","rows":[{"label":"Looking for driving lessons given during the:","text":"weekends","example":true},{"label":"Address:","text":"{1} Road"},{"label":"Drive:","text":"the city center"},{"label":"","text":"{2} above the city"},{"label":"Teacher's name:","text":"Allen {3}"},{"label":"Popular type of car on roads:","text":"{4}"},{"label":"Best time to take lessons:","text":"practice during the {5}"},{"label":"Safety driving depends on:","text":"good {6}"},{"label":"Obtain:","text":"a driving {7}"},{"label":"Final test fee:","text":"$ {8}"},{"label":"Duration of test:","text":"approximately {9} minutes"},{"label":"More advice:","text":"keep a driving {10}"}],"audio":"audio/section1.mp3"},{"id":"read1","no":"二","title":"Reading · The economic importance of coral reefs","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":11},{"no":12},{"no":13},{"no":14},{"no":15},{"no":16}],"instruction":"Choose NO MORE THAN TWO WORDS from the passage for each answer.","rows":[{"kind":"group","text":"How coral-reef-based resources protect people during difficult times"},{"kind":"group","text":"Coral reefs can provide:"},{"kind":"bullet","text":"a resource bank, e.g. for keeping clams and {11}"},{"kind":"bullet","text":"a seasonal back-up, when {12} products are insufficient, e.g. in northern Mozambique"},{"kind":"bullet","text":"a tourist attraction, e.g. {13} tours in the Caribbean"},{"kind":"group","text":"Benefits for local people include:"},{"kind":"bullet","text":"The creation of jobs."},{"kind":"bullet","text":"Improvements to roads and {14}"},{"kind":"group","text":"Important considerations:"},{"kind":"bullet","text":"Development must be based on appropriate principles."},{"kind":"bullet","text":"Need for {15}"},{"kind":"bullet","text":"Poorly-planned development can create {16} with local fishers."}],"passage":{"title":"The economic importance of coral reefs","paragraphs":["Reef flats and shallow reef lagoons are accessible on foot, without the need for a boat, and so allow women, children and the elderly to engage directly in manual harvesting, or 'reef-gleaning'. This is a significant factor distinguishing reef-based fisheries from near-shore sea fisheries. Near-shore fisheries are typically the domain of adult males, in particular where they involve the use of boats, with women and children restricted mainly to shore-based activities. However, in a coral-reef fishery the physical accessibility of the reef opens up opportunities for direct participation by women, and consequently increases their independence and the importance of their role in the community. It also provides a place for children to play, and to acquire important skills and knowledge for later in life. For example, in the South West Island of Tobi, in the Pacific Ocean, young boys use simple hand lines with a loop and bait at the end to develop the art of fishing on the reef. Similarly, in the Surin Islands of Thailand, young Moken boys spend much of their time playing, swimming and diving in shallow reef lagoons, and in doing so build crucial skills for their future daily subsistence.","Secondary occupations, such as fish processing and marketing activities, are often dominated by women, and offer an important survival strategy for households with access to few other physical assets (such as boats and gear), for elderly women, widows, or the wives of infirm men. On Ulithi Atoll in the western Pacific, women have a distinct role and rights in the distribution of fish catches. This is because the canoes, made from mahogany logs from nearby Yap Island, are obtained through the exchange of cloth made by the women of Ulithi. Small-scale reef fisheries support the involvement of local women traders and their involvement can give them greater control over the household income, and in negotiating for loans or credit. Thus their role is not only important in providing income for their families, it also underpins the economy of the local village.","Poor people with little access to land, labour and financial resources are particularly reliant on exploiting natural resources, and consequently they are vulnerable to seasonal changes in availability of those resources. The diversity of coral reef fisheries, combined with their physical accessibility and the protection they provide against bad weather, make them relatively stable compared with other fisheries or land-based agricultural production.","In many places, the reef may even act as a resource bank, used as a means of saving food for future times of need. In Manus, Papua New Guinea, giant clams are collected and held in walled enclosures on the reef, until they are needed during periods of rough weather. In Palau, sea cucumbers are seldom eaten during good weather in an effort to conserve their populations for months during which rough weather prohibits good fishing.","Coral reef resources also act as a buffer against seasonal lows in other sectors, particularly agriculture. For example, in coastal communities in northern Mozambique, reef harvests provide key sources of food and cash when agricultural production is low, with the peak in fisheries production coinciding with the period of lowest agricultural stocks. In Papua New Guinea, while agriculture is the primary means of food production, a large proportion of the coastal population engages in sporadic subsistence fishing.","In many coral-reef areas, tourism is one of the main industries bringing employment, and in many cases, is promoted to provide alternatives to fisheries-based livelihoods, and to ensure that local reef resources are conserved. In the Caribbean alone, tours based on scuba diving have attracted 20 million people in one year. The upgrading of roads and communications associated with the expansion of tourism may also bring benefits to local communities. However, plans for development must be considered carefully. The ability of the poorer members of the community to access the benefits of tourism is far from guaranteed and requires development guided by social, cultural and environmental principles. There is growing recognition that sustainability is a key requirement, as encompassed in small-scale eco-tourism activities, for instance.","Where tourism development has not been carefully planned, and the needs and priorities of the local community have not been properly recognised, conflict has sometimes arisen between tourism and local, small-scale fishers."]}}]};
+window.__QUIZ__ = {"meta":{"brand":"学为贵","course":"6.5 第一周","title":"第一周周末测试","subtitle":"听力 Section 1 · 阅读 Passage","minutes":25,"quizId":"real-6.5-w1-20261114-235256","intro":"共 16 题 · 听力音频点「开始播放」后播放一遍 · 每空 1 分，满分 16 分 · 提交后立刻出分。","supabaseUrl":"https://ulqqkenxnbzoxaqrdtgg.supabase.co","supabaseAnonKey":"sb_publishable_m3whnOXaHbvvL7ODe4scmA_KK5EhTa7","relayUrl":"","文件名":"weekend1.html","paged":true,"readingMinutes":13,"build":"2026-11-15 00:32","submitUrl":""},"sections":[{"id":"listen1","no":"一","title":"Section 1 · 听力笔记填空","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":1},{"no":2},{"no":3},{"no":4},{"no":5},{"no":6},{"no":7},{"no":8},{"no":9},{"no":10}],"instruction":"Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.","heading":"Driving school","rows":[{"label":"Looking for driving lessons given during the:","text":"weekends","example":true},{"label":"Address:","text":"{1} Road"},{"label":"Drive:","text":"the city center"},{"label":"","text":"{2} above the city"},{"label":"Teacher's name:","text":"Allen {3}"},{"label":"Popular type of car on roads:","text":"{4}"},{"label":"Best time to take lessons:","text":"practice during the {5}"},{"label":"Safety driving depends on:","text":"good {6}"},{"label":"Obtain:","text":"a driving {7}"},{"label":"Final test fee:","text":"$ {8}"},{"label":"Duration of test:","text":"approximately {9} minutes"},{"label":"More advice:","text":"keep a driving {10}"}],"audio":"audio/section1.mp3","page":1},{"id":"read1","no":"二","title":"Reading · The economic importance of coral reefs","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":11},{"no":12},{"no":13},{"no":14},{"no":15},{"no":16}],"instruction":"Choose NO MORE THAN TWO WORDS from the passage for each answer.","rows":[{"kind":"group","text":"How coral-reef-based resources protect people during difficult times"},{"kind":"group","text":"Coral reefs can provide:"},{"kind":"bullet","text":"a resource bank, e.g. for keeping clams and {11}"},{"kind":"bullet","text":"a seasonal back-up, when {12} products are insufficient, e.g. in northern Mozambique"},{"kind":"bullet","text":"a tourist attraction, e.g. {13} tours in the Caribbean"},{"kind":"group","text":"Benefits for local people include:"},{"kind":"bullet","text":"The creation of jobs."},{"kind":"bullet","text":"Improvements to roads and {14}"},{"kind":"group","text":"Important considerations:"},{"kind":"bullet","text":"Development must be based on appropriate principles."},{"kind":"bullet","text":"Need for {15}"},{"kind":"bullet","text":"Poorly-planned development can create {16} with local fishers."}],"passage":{"title":"The economic importance of coral reefs","paragraphs":["Reef flats and shallow reef lagoons are accessible on foot, without the need for a boat, and so allow women, children and the elderly to engage directly in manual harvesting, or 'reef-gleaning'. This is a significant factor distinguishing reef-based fisheries from near-shore sea fisheries. Near-shore fisheries are typically the domain of adult males, in particular where they involve the use of boats, with women and children restricted mainly to shore-based activities. However, in a coral-reef fishery the physical accessibility of the reef opens up opportunities for direct participation by women, and consequently increases their independence and the importance of their role in the community. It also provides a place for children to play, and to acquire important skills and knowledge for later in life. For example, in the South West Island of Tobi, in the Pacific Ocean, young boys use simple hand lines with a loop and bait at the end to develop the art of fishing on the reef. Similarly, in the Surin Islands of Thailand, young Moken boys spend much of their time playing, swimming and diving in shallow reef lagoons, and in doing so build crucial skills for their future daily subsistence.","Secondary occupations, such as fish processing and marketing activities, are often dominated by women, and offer an important survival strategy for households with access to few other physical assets (such as boats and gear), for elderly women, widows, or the wives of infirm men. On Ulithi Atoll in the western Pacific, women have a distinct role and rights in the distribution of fish catches. This is because the canoes, made from mahogany logs from nearby Yap Island, are obtained through the exchange of cloth made by the women of Ulithi. Small-scale reef fisheries support the involvement of local women traders and their involvement can give them greater control over the household income, and in negotiating for loans or credit. Thus their role is not only important in providing income for their families, it also underpins the economy of the local village.","Poor people with little access to land, labour and financial resources are particularly reliant on exploiting natural resources, and consequently they are vulnerable to seasonal changes in availability of those resources. The diversity of coral reef fisheries, combined with their physical accessibility and the protection they provide against bad weather, make them relatively stable compared with other fisheries or land-based agricultural production.","In many places, the reef may even act as a resource bank, used as a means of saving food for future times of need. In Manus, Papua New Guinea, giant clams are collected and held in walled enclosures on the reef, until they are needed during periods of rough weather. In Palau, sea cucumbers are seldom eaten during good weather in an effort to conserve their populations for months during which rough weather prohibits good fishing.","Coral reef resources also act as a buffer against seasonal lows in other sectors, particularly agriculture. For example, in coastal communities in northern Mozambique, reef harvests provide key sources of food and cash when agricultural production is low, with the peak in fisheries production coinciding with the period of lowest agricultural stocks. In Papua New Guinea, while agriculture is the primary means of food production, a large proportion of the coastal population engages in sporadic subsistence fishing.","In many coral-reef areas, tourism is one of the main industries bringing employment, and in many cases, is promoted to provide alternatives to fisheries-based livelihoods, and to ensure that local reef resources are conserved. In the Caribbean alone, tours based on scuba diving have attracted 20 million people in one year. The upgrading of roads and communications associated with the expansion of tourism may also bring benefits to local communities. However, plans for development must be considered carefully. The ability of the poorer members of the community to access the benefits of tourism is far from guaranteed and requires development guided by social, cultural and environmental principles. There is growing recognition that sustainability is a key requirement, as encompassed in small-scale eco-tourism activities, for instance.","Where tourism development has not been carefully planned, and the needs and priorities of the local community have not been properly recognised, conflict has sometimes arisen between tourism and local, small-scale fishers."]},"page":2}]};
 window.__AUDIO__ = {};
 window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX00NWVlcUQtVOlBdVUtIDwgQSRQZGRRaFAcaWBcSaxBYFwUTRVMoFFYNEAMQDFgMRUwfBh4fX0ESCBYjVTRYBRYFE0tUVRBrBVtHD0VXU1pWEFFcRQ8SFV5TT0khD1NFRlkVFhNEElc0BwESEgcUQlccDxAbGg1IQEMQDFgsRUkQDEsnUB4QEABaTUdWUxQHCVpXQkEUQlc8DwYQCA5FV0IQawVbRw9GV1NaVhBRXEUPEhVeU09JIQ9eWVFTFgQCD11VSxZEUVVcVR1VOlBdVUtCDwgQSRQZGRRaFAcaWBcSaxADSFU6UF1VS0MPCBBJFBkZFFoUBxpYFxJrEAVIVTpQXVVLSx0QChJNWhYJXgYQGwkPCBBpFBYYE0gTGgYRDx4QEFIRFhVUUygUBwESEkBTGRNWD0tVElgcAxIIFgNVBkMCAgwIXhAKEm1aBAJMURYcGVhfUldEC1U6UF1VS0sfEAoSTVoWCV4GEBsJDwgQaRQZEBVEEgAFDlhAUV4UJQpLDVNEWlgXEksQVxYEEEgDBktADWkSQVUNFQYNFRwfE0NVEm9LVFdFHEVXU1pWEFFcRQ8SFV5TT0khD1FfX1sNGQ5OEAEAFUNBEm9LVFdFHERXU1pWEFFcRQ8SFV5TT0khD0FFQUIZHglMExwFE1lLEm9LVFdFHEdXU1pWEFFcRQ8SFV5TT0khD1FfXFAUHgRZUygUB1A=";
 (function () {
@@ -606,8 +628,27 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
     });
   }
 
-  function notesBody(sec, g) {
+  function notesBody(sec, g, split) {
     var out = [];
+    if (split) {
+      out.push('<div class="split"><div class="pane left">');
+      if (sec.passage) {
+        out.push('<div class="passage"><h4>' + esc(sec.passage.title) + "</h4>");
+        (sec.passage.paragraphs || []).forEach(function (x) { out.push("<p>" + esc(x) + "</p>"); });
+        out.push("</div>");
+      }
+      out.push('</div><div class="pane right">');
+      if (sec.instruction) out.push('<div class="note-instr">' + esc(sec.instruction) + "</div>");
+      out.push('<div class="notes-table">');
+      (sec.rows || []).forEach(function (row) {
+        if (row.kind === "group") { out.push('<div class="n-group">' + esc(row.text) + "</div>"); return; }
+        if (row.kind === "bullet") { out.push('<div class="n-bullet">' + blanksHTML(sec, row.text, g) + "</div>"); return; }
+        out.push('<div class="n-row' + (row.example ? " example" : "") + '"><div class="n-label">' +
+          esc(row.label || "") + '</div><div class="n-text">' + blanksHTML(sec, row.text, g) + "</div></div>");
+      });
+      out.push("</div></div></div>");
+      return out.join("");
+    }
     if (sec.audio && !g) out.push(clipHTML(sec));
     if (sec.instruction) out.push('<div class="note-instr">' + esc(sec.instruction) + "</div>");
     if (sec.notice) out.push('<div class="note-notice">' + esc(sec.notice) + "</div>");
@@ -696,7 +737,7 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
         '<div class="sec-meta">' + meta + "</div></div>");
 
       if (sec.type === "notes") {
-        out.push(notesBody(sec));
+        out.push(notesBody(sec, null, META.paged && sec.page === 2));
         out.push("</section>");
         return;
       }
@@ -1032,6 +1073,156 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
     window.scrollTo(0, 0);
   }
 
+  /* ---------------- 高亮划词 ---------------- */
+  function initHighlight() {
+    var btn = document.createElement("button");
+    btn.className = "hl-btn";
+    btn.id = "hlbtn";
+    btn.textContent = "高亮";
+    btn.style.display = "none";
+    document.body.appendChild(btn);
+
+    document.addEventListener("mouseup", function () {
+      setTimeout(function () {
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) { btn.style.display = "none"; return; }
+        var node = sel.anchorNode;
+        if (!node) { btn.style.display = "none"; return; }
+        var el = node.nodeType === 3 ? node.parentNode : node;
+        if (!el.closest || !el.closest(".passage, .notes-table")) { btn.style.display = "none"; return; }
+        var r = sel.getRangeAt(0).getBoundingClientRect();
+        if (r.width === 0 && r.height === 0) { btn.style.display = "none"; return; }
+        btn.style.top = (r.top + window.scrollY - 40) + "px";
+        btn.style.left = Math.max(8, r.left + window.scrollX + r.width / 2 - 26) + "px";
+        btn.style.display = "block";
+      }, 10);
+    });
+
+    btn.addEventListener("mousedown", function (e) { e.preventDefault(); });
+    btn.addEventListener("click", function () {
+      var sel = window.getSelection();
+      if (!sel || !sel.rangeCount) return;
+      var range = sel.getRangeAt(0);
+      if (range.collapsed) return;
+      var mark = document.createElement("mark");
+      mark.className = "hl";
+      try { range.surroundContents(mark); }
+      catch (err) { mark.appendChild(range.extractContents()); range.insertNode(mark); }
+      sel.removeAllRanges();
+      btn.style.display = "none";
+    });
+  }
+
+  /* ---------------- 分页流程（真题） ---------------- */
+  var pagedTimer = null;
+
+  function fmtClock2(ms) {
+    var s = Math.max(0, Math.round(ms / 1000));
+    var m = Math.floor(s / 60), r = s % 60;
+    return m + ":" + (r < 10 ? "0" + r : r);
+  }
+
+  function setupPaged() {
+    state.step = state.step || 1;
+    var sb = document.querySelector(".submit-block");
+    if (sb) sb.style.display = "none";
+    var ob = byId("btn-submit");
+    if (ob) ob.style.display = "none";
+
+    var steps = document.createElement("div");
+    steps.className = "steps";
+    steps.id = "steps";
+    steps.innerHTML = '<span data-s="1">1 填写信息</span><span data-s="2">2 听力</span><span data-s="3">3 阅读</span>';
+    var secs = byId("sections");
+    secs.parentNode.insertBefore(steps, secs);
+
+    var cta = document.createElement("div");
+    cta.className = "cta";
+    cta.id = "cta";
+    cta.innerHTML = '<button class="btn btn-submit" id="cta-btn"></button><div class="cta-note" id="cta-note"></div>';
+    secs.parentNode.appendChild(cta);
+
+    var nav = document.querySelector(".snav");
+    if (nav) nav.style.display = "none";
+
+    var tm = document.createElement("span");
+    tm.id = "timer";
+    tm.className = "timer";
+    var inner = document.querySelector(".sticky .inner");
+    if (inner) inner.appendChild(tm);
+
+    byId("cta-btn").addEventListener("click", onCta);
+
+    showStep(state.step);
+    pagedTimer = setInterval(tickTimer, 1000);
+  }
+
+  function showStep(n) {
+    state.step = n;
+    save();
+    var list = document.querySelectorAll("#sections .sec");
+    var idx = n === 2 ? 0 : (n === 3 ? 1 : -1);
+    Array.prototype.forEach.call(list, function (el, i) {
+      el.style.display = (i === idx) ? "" : "none";
+    });
+    var info = document.querySelector(".info-card");
+    if (info) info.style.display = n === 1 ? "" : "none";
+
+    document.querySelectorAll("#steps span").forEach(function (sp) {
+      sp.classList.toggle("on", Number(sp.getAttribute("data-s")) === n);
+      sp.classList.toggle("done", Number(sp.getAttribute("data-s")) < n);
+    });
+
+    var btn = byId("cta-btn"), note = byId("cta-note");
+    if (n === 1) {
+      btn.textContent = "开始听力  →";
+      note.textContent = "听力音频只播放一遍，听完再进入阅读。";
+    } else if (n === 2) {
+      btn.textContent = "听力完成，进入阅读  →";
+      note.textContent = "进入阅读后开始计时，听力答案已保存。";
+    } else {
+      btn.textContent = "提交答卷";
+      note.textContent = "阅读限时 " + META.readingMinutes + " 分钟，时间到会自动交卷。";
+    }
+    window.scrollTo(0, 0);
+  }
+
+  function onCta() {
+    if (state.step === 1) {
+      var name = (state.info.name || "").trim();
+      var cls = (state.info.cls || "").trim();
+      if (!name) { byId("in-name").classList.add("err"); byId("in-name").focus(); return; }
+      if (!cls) { byId("in-cls").classList.add("err"); byId("in-cls").focus(); return; }
+      showStep(2);
+      return;
+    }
+    if (state.step === 2) {
+      if (!confirm("进入阅读？进入后开始计时，听力答案已保存，不能再回来改。")) return;
+      if (!state.readDeadline) {
+        state.readDeadline = Date.now() + (Number(META.readingMinutes) || 13) * 60000;
+        save();
+      }
+      showStep(3);
+      return;
+    }
+    askSubmit();
+  }
+
+  function tickTimer() {
+    if (state.step !== 3 || state.submitted || !state.readDeadline) return;
+    var el = byId("timer");
+    var left = state.readDeadline - Date.now();
+    if (el) {
+      el.textContent = "阅读剩余 " + fmtClock2(left);
+      el.classList.toggle("warn", left < 60000);
+    }
+    if (left <= 0) {
+      clearInterval(pagedTimer);
+      if (el) el.textContent = "时间到";
+      doSubmit();
+    }
+  }
+
   /* ---------------- submit ---------------- */
   function buildDetail(g) {
     var L = ["A", "B", "C", "D"];
@@ -1315,6 +1506,8 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
     if (rcsv) rcsv.addEventListener("click", exportCSV);
     if (META.build && byId("ver")) byId("ver").textContent = "版本 " + META.build;
 
+    if (META.paged) initHighlight();
+    if (META.paged && !state.submitted) setupPaged();
     if (state.submitted) renderResult();
 
     document.addEventListener("click", function (e) {
