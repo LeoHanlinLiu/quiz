@@ -372,6 +372,21 @@ mark.hl{background:#ffef9f;color:inherit;padding:0 1px;border-radius:2px}
 .hl-btn{position:absolute;z-index:99;border:0;border-radius:8px;background:#1f4fd8;color:#fff;
   font-size:12.5px;padding:6px 12px;cursor:pointer;box-shadow:0 6px 16px rgba(20,40,90,.25)}
 
+/* 真题：宽屏阅读 + 醒目倒计时 + 结果页音频 */
+body.wide .wrap{max-width:1460px}
+body.wide .split{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px}
+body.wide .split .passage{max-height:calc(100vh - 250px)}
+body.wide .split .pane.right{max-height:calc(100vh - 250px);overflow:auto;padding-right:6px}
+.cdown{position:fixed;top:12px;right:16px;z-index:80;background:#1f4fd8;color:#fff;border-radius:12px;
+  padding:8px 16px;font-size:19px;font-weight:750;font-variant-numeric:tabular-nums;line-height:1.2;
+  box-shadow:0 10px 24px rgba(20,40,90,.28);text-align:center}
+.cdown small{display:block;font-size:10.5px;font-weight:500;opacity:.85;letter-spacing:.05em}
+.cdown.warn{background:#c0392b}
+.res-audio{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 4px;padding:12px 14px;
+  background:#f7f9ff;border:1px solid #dbe4f6;border-radius:12px}
+.res-audio audio{flex:1;min-width:280px;height:38px}
+.res-audio-note{font-size:12.5px;color:#7c8492}
+
 </style>
 </head>
 <body>
@@ -459,7 +474,7 @@ mark.hl{background:#ffef9f;color:inherit;padding:0 1px;border-radius:2px}
 </div>
 
 <script>
-window.__QUIZ__ = {"meta":{"brand":"学为贵","course":"6.5 第一周","title":"第一周周末测试","subtitle":"听力 Section 1 · 阅读 Passage","minutes":25,"quizId":"real-6.5-w1-20261114-235256","intro":"共 16 题 · 听力音频点「开始播放」后播放一遍 · 每空 1 分，满分 16 分 · 提交后立刻出分。","supabaseUrl":"https://ulqqkenxnbzoxaqrdtgg.supabase.co","supabaseAnonKey":"sb_publishable_m3whnOXaHbvvL7ODe4scmA_KK5EhTa7","relayUrl":"","文件名":"weekend1.html","paged":true,"readingMinutes":13,"build":"2026-11-15 00:32","submitUrl":""},"sections":[{"id":"listen1","no":"一","title":"Section 1 · 听力笔记填空","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":1},{"no":2},{"no":3},{"no":4},{"no":5},{"no":6},{"no":7},{"no":8},{"no":9},{"no":10}],"instruction":"Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.","heading":"Driving school","rows":[{"label":"Looking for driving lessons given during the:","text":"weekends","example":true},{"label":"Address:","text":"{1} Road"},{"label":"Drive:","text":"the city center"},{"label":"","text":"{2} above the city"},{"label":"Teacher's name:","text":"Allen {3}"},{"label":"Popular type of car on roads:","text":"{4}"},{"label":"Best time to take lessons:","text":"practice during the {5}"},{"label":"Safety driving depends on:","text":"good {6}"},{"label":"Obtain:","text":"a driving {7}"},{"label":"Final test fee:","text":"$ {8}"},{"label":"Duration of test:","text":"approximately {9} minutes"},{"label":"More advice:","text":"keep a driving {10}"}],"audio":"audio/section1.mp3","page":1},{"id":"read1","no":"二","title":"Reading · The economic importance of coral reefs","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":11},{"no":12},{"no":13},{"no":14},{"no":15},{"no":16}],"instruction":"Choose NO MORE THAN TWO WORDS from the passage for each answer.","rows":[{"kind":"group","text":"How coral-reef-based resources protect people during difficult times"},{"kind":"group","text":"Coral reefs can provide:"},{"kind":"bullet","text":"a resource bank, e.g. for keeping clams and {11}"},{"kind":"bullet","text":"a seasonal back-up, when {12} products are insufficient, e.g. in northern Mozambique"},{"kind":"bullet","text":"a tourist attraction, e.g. {13} tours in the Caribbean"},{"kind":"group","text":"Benefits for local people include:"},{"kind":"bullet","text":"The creation of jobs."},{"kind":"bullet","text":"Improvements to roads and {14}"},{"kind":"group","text":"Important considerations:"},{"kind":"bullet","text":"Development must be based on appropriate principles."},{"kind":"bullet","text":"Need for {15}"},{"kind":"bullet","text":"Poorly-planned development can create {16} with local fishers."}],"passage":{"title":"The economic importance of coral reefs","paragraphs":["Reef flats and shallow reef lagoons are accessible on foot, without the need for a boat, and so allow women, children and the elderly to engage directly in manual harvesting, or 'reef-gleaning'. This is a significant factor distinguishing reef-based fisheries from near-shore sea fisheries. Near-shore fisheries are typically the domain of adult males, in particular where they involve the use of boats, with women and children restricted mainly to shore-based activities. However, in a coral-reef fishery the physical accessibility of the reef opens up opportunities for direct participation by women, and consequently increases their independence and the importance of their role in the community. It also provides a place for children to play, and to acquire important skills and knowledge for later in life. For example, in the South West Island of Tobi, in the Pacific Ocean, young boys use simple hand lines with a loop and bait at the end to develop the art of fishing on the reef. Similarly, in the Surin Islands of Thailand, young Moken boys spend much of their time playing, swimming and diving in shallow reef lagoons, and in doing so build crucial skills for their future daily subsistence.","Secondary occupations, such as fish processing and marketing activities, are often dominated by women, and offer an important survival strategy for households with access to few other physical assets (such as boats and gear), for elderly women, widows, or the wives of infirm men. On Ulithi Atoll in the western Pacific, women have a distinct role and rights in the distribution of fish catches. This is because the canoes, made from mahogany logs from nearby Yap Island, are obtained through the exchange of cloth made by the women of Ulithi. Small-scale reef fisheries support the involvement of local women traders and their involvement can give them greater control over the household income, and in negotiating for loans or credit. Thus their role is not only important in providing income for their families, it also underpins the economy of the local village.","Poor people with little access to land, labour and financial resources are particularly reliant on exploiting natural resources, and consequently they are vulnerable to seasonal changes in availability of those resources. The diversity of coral reef fisheries, combined with their physical accessibility and the protection they provide against bad weather, make them relatively stable compared with other fisheries or land-based agricultural production.","In many places, the reef may even act as a resource bank, used as a means of saving food for future times of need. In Manus, Papua New Guinea, giant clams are collected and held in walled enclosures on the reef, until they are needed during periods of rough weather. In Palau, sea cucumbers are seldom eaten during good weather in an effort to conserve their populations for months during which rough weather prohibits good fishing.","Coral reef resources also act as a buffer against seasonal lows in other sectors, particularly agriculture. For example, in coastal communities in northern Mozambique, reef harvests provide key sources of food and cash when agricultural production is low, with the peak in fisheries production coinciding with the period of lowest agricultural stocks. In Papua New Guinea, while agriculture is the primary means of food production, a large proportion of the coastal population engages in sporadic subsistence fishing.","In many coral-reef areas, tourism is one of the main industries bringing employment, and in many cases, is promoted to provide alternatives to fisheries-based livelihoods, and to ensure that local reef resources are conserved. In the Caribbean alone, tours based on scuba diving have attracted 20 million people in one year. The upgrading of roads and communications associated with the expansion of tourism may also bring benefits to local communities. However, plans for development must be considered carefully. The ability of the poorer members of the community to access the benefits of tourism is far from guaranteed and requires development guided by social, cultural and environmental principles. There is growing recognition that sustainability is a key requirement, as encompassed in small-scale eco-tourism activities, for instance.","Where tourism development has not been carefully planned, and the needs and priorities of the local community have not been properly recognised, conflict has sometimes arisen between tourism and local, small-scale fishers."]},"page":2}]};
+window.__QUIZ__ = {"meta":{"brand":"学为贵","course":"6.5 第一周","title":"第一周周末测试","subtitle":"听力 Section 1 · 阅读 Passage","minutes":25,"quizId":"real-6.5-w1-20261114-235256","intro":"共 16 题 · 听力音频点「开始播放」后播放一遍 · 每空 1 分，满分 16 分 · 提交后立刻出分。","supabaseUrl":"https://ulqqkenxnbzoxaqrdtgg.supabase.co","supabaseAnonKey":"sb_publishable_m3whnOXaHbvvL7ODe4scmA_KK5EhTa7","relayUrl":"https://xwg-quiz-d2ghdcuoj8f5256c0-1530548615.ap-shanghai.app.tcloudbase.com/submit","文件名":"weekend1.html","paged":true,"readingMinutes":13,"build":"2026-11-15 00:43","submitUrl":""},"sections":[{"id":"listen1","no":"一","title":"Section 1 · 听力笔记填空","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":1},{"no":2},{"no":3},{"no":4},{"no":5},{"no":6},{"no":7},{"no":8},{"no":9},{"no":10}],"instruction":"Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.","heading":"Driving school","rows":[{"label":"Looking for driving lessons given during the:","text":"weekends","example":true},{"label":"Address:","text":"{1} Road"},{"label":"Drive:","text":"the city center"},{"label":"","text":"{2} above the city"},{"label":"Teacher's name:","text":"Allen {3}"},{"label":"Popular type of car on roads:","text":"{4}"},{"label":"Best time to take lessons:","text":"practice during the {5}"},{"label":"Safety driving depends on:","text":"good {6}"},{"label":"Obtain:","text":"a driving {7}"},{"label":"Final test fee:","text":"$ {8}"},{"label":"Duration of test:","text":"approximately {9} minutes"},{"label":"More advice:","text":"keep a driving {10}"}],"audio":"audio/section1.mp3","page":1},{"id":"read1","no":"二","title":"Reading · The economic importance of coral reefs","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":11},{"no":12},{"no":13},{"no":14},{"no":15},{"no":16}],"instruction":"Choose NO MORE THAN TWO WORDS from the passage for each answer.","rows":[{"kind":"group","text":"How coral-reef-based resources protect people during difficult times"},{"kind":"group","text":"Coral reefs can provide:"},{"kind":"bullet","text":"a resource bank, e.g. for keeping clams and {11}"},{"kind":"bullet","text":"a seasonal back-up, when {12} products are insufficient, e.g. in northern Mozambique"},{"kind":"bullet","text":"a tourist attraction, e.g. {13} tours in the Caribbean"},{"kind":"group","text":"Benefits for local people include:"},{"kind":"bullet","text":"The creation of jobs."},{"kind":"bullet","text":"Improvements to roads and {14}"},{"kind":"group","text":"Important considerations:"},{"kind":"bullet","text":"Development must be based on appropriate principles."},{"kind":"bullet","text":"Need for {15}"},{"kind":"bullet","text":"Poorly-planned development can create {16} with local fishers."}],"passage":{"title":"The economic importance of coral reefs","paragraphs":["Reef flats and shallow reef lagoons are accessible on foot, without the need for a boat, and so allow women, children and the elderly to engage directly in manual harvesting, or 'reef-gleaning'. This is a significant factor distinguishing reef-based fisheries from near-shore sea fisheries. Near-shore fisheries are typically the domain of adult males, in particular where they involve the use of boats, with women and children restricted mainly to shore-based activities. However, in a coral-reef fishery the physical accessibility of the reef opens up opportunities for direct participation by women, and consequently increases their independence and the importance of their role in the community. It also provides a place for children to play, and to acquire important skills and knowledge for later in life. For example, in the South West Island of Tobi, in the Pacific Ocean, young boys use simple hand lines with a loop and bait at the end to develop the art of fishing on the reef. Similarly, in the Surin Islands of Thailand, young Moken boys spend much of their time playing, swimming and diving in shallow reef lagoons, and in doing so build crucial skills for their future daily subsistence.","Secondary occupations, such as fish processing and marketing activities, are often dominated by women, and offer an important survival strategy for households with access to few other physical assets (such as boats and gear), for elderly women, widows, or the wives of infirm men. On Ulithi Atoll in the western Pacific, women have a distinct role and rights in the distribution of fish catches. This is because the canoes, made from mahogany logs from nearby Yap Island, are obtained through the exchange of cloth made by the women of Ulithi. Small-scale reef fisheries support the involvement of local women traders and their involvement can give them greater control over the household income, and in negotiating for loans or credit. Thus their role is not only important in providing income for their families, it also underpins the economy of the local village.","Poor people with little access to land, labour and financial resources are particularly reliant on exploiting natural resources, and consequently they are vulnerable to seasonal changes in availability of those resources. The diversity of coral reef fisheries, combined with their physical accessibility and the protection they provide against bad weather, make them relatively stable compared with other fisheries or land-based agricultural production.","In many places, the reef may even act as a resource bank, used as a means of saving food for future times of need. In Manus, Papua New Guinea, giant clams are collected and held in walled enclosures on the reef, until they are needed during periods of rough weather. In Palau, sea cucumbers are seldom eaten during good weather in an effort to conserve their populations for months during which rough weather prohibits good fishing.","Coral reef resources also act as a buffer against seasonal lows in other sectors, particularly agriculture. For example, in coastal communities in northern Mozambique, reef harvests provide key sources of food and cash when agricultural production is low, with the peak in fisheries production coinciding with the period of lowest agricultural stocks. In Papua New Guinea, while agriculture is the primary means of food production, a large proportion of the coastal population engages in sporadic subsistence fishing.","In many coral-reef areas, tourism is one of the main industries bringing employment, and in many cases, is promoted to provide alternatives to fisheries-based livelihoods, and to ensure that local reef resources are conserved. In the Caribbean alone, tours based on scuba diving have attracted 20 million people in one year. The upgrading of roads and communications associated with the expansion of tourism may also bring benefits to local communities. However, plans for development must be considered carefully. The ability of the poorer members of the community to access the benefits of tourism is far from guaranteed and requires development guided by social, cultural and environmental principles. There is growing recognition that sustainability is a key requirement, as encompassed in small-scale eco-tourism activities, for instance.","Where tourism development has not been carefully planned, and the needs and priorities of the local community have not been properly recognised, conflict has sometimes arisen between tourism and local, small-scale fishers."]},"page":2}]};
 window.__AUDIO__ = {};
 window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX00NWVlcUQtVOlBdVUtIDwgQSRQZGRRaFAcaWBcSaxBYFwUTRVMoFFYNEAMQDFgMRUwfBh4fX0ESCBYjVTRYBRYFE0tUVRBrBVtHD0VXU1pWEFFcRQ8SFV5TT0khD1NFRlkVFhNEElc0BwESEgcUQlccDxAbGg1IQEMQDFgsRUkQDEsnUB4QEABaTUdWUxQHCVpXQkEUQlc8DwYQCA5FV0IQawVbRw9GV1NaVhBRXEUPEhVeU09JIQ9eWVFTFgQCD11VSxZEUVVcVR1VOlBdVUtCDwgQSRQZGRRaFAcaWBcSaxADSFU6UF1VS0MPCBBJFBkZFFoUBxpYFxJrEAVIVTpQXVVLSx0QChJNWhYJXgYQGwkPCBBpFBYYE0gTGgYRDx4QEFIRFhVUUygUBwESEkBTGRNWD0tVElgcAxIIFgNVBkMCAgwIXhAKEm1aBAJMURYcGVhfUldEC1U6UF1VS0sfEAoSTVoWCV4GEBsJDwgQaRQZEBVEEgAFDlhAUV4UJQpLDVNEWlgXEksQVxYEEEgDBktADWkSQVUNFQYNFRwfE0NVEm9LVFdFHEVXU1pWEFFcRQ8SFV5TT0khD1FfX1sNGQ5OEAEAFUNBEm9LVFdFHERXU1pWEFFcRQ8SFV5TT0khD0FFQUIZHglMExwFE1lLEm9LVFdFHEdXU1pWEFFcRQ8SFV5TT0khD1FfXFAUHgRZUygUB1A=";
 (function () {
@@ -1008,7 +1023,11 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
         "<h3>" + esc(sec.title) + '</h3><div class="rsec-score">' + head + "</div></div>");
 
       if (sec.type === "notes") {
-        out.push(notesBody(sec, g));
+        if (sec.audio) {
+          out.push('<div class="res-audio"><audio controls preload="metadata" src="' + esc(sec.audio) + '"></audio>' +
+            '<span class="res-audio-note">听力音频（可以自由拖动进度条回听）</span></div>');
+        }
+        out.push(notesBody(sec, g, META.paged && sec.page === 2));
         out.push("</section>");
         return;
       }
@@ -1067,6 +1086,11 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
     out.push('<div class="res-actions"><button class="btn ghost" id="r-retry">重新做一遍</button></div>');
     out.push('<p class="res-note">点「重新做一遍」会清空本机记录、回到空白卷；这次的成绩已经交给老师，不会丢。</p>');
 
+    if (META.paged) document.body.classList.add("wide");
+    var cd0 = byId("cdown"), tm0 = byId("timer");
+    if (cd0) cd0.style.display = "none";
+    if (tm0) tm0.style.display = "none";
+    if (pagedTimer) { clearInterval(pagedTimer); pagedTimer = null; }
     byId("result").innerHTML = out.join("");
     byId("quiz-root").style.display = "none";
     byId("result-wrap").style.display = "block";
@@ -1145,6 +1169,12 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
     var nav = document.querySelector(".snav");
     if (nav) nav.style.display = "none";
 
+    var cd = document.createElement("div");
+    cd.id = "cdown";
+    cd.className = "cdown";
+    cd.style.display = "none";
+    document.body.appendChild(cd);
+
     var tm = document.createElement("span");
     tm.id = "timer";
     tm.className = "timer";
@@ -1165,6 +1195,7 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
     Array.prototype.forEach.call(list, function (el, i) {
       el.style.display = (i === idx) ? "" : "none";
     });
+    document.body.classList.toggle("wide", state.step === 3);
     var info = document.querySelector(".info-card");
     if (info) info.style.display = n === 1 ? "" : "none";
 
@@ -1184,6 +1215,8 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
       btn.textContent = "提交答卷";
       note.textContent = "阅读限时 " + META.readingMinutes + " 分钟，时间到会自动交卷。";
     }
+    var cdx = byId("cdown");
+    if (cdx) cdx.style.display = n === 3 ? "block" : "none";
     window.scrollTo(0, 0);
   }
 
@@ -1210,11 +1243,16 @@ window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX0
 
   function tickTimer() {
     if (state.step !== 3 || state.submitted || !state.readDeadline) return;
-    var el = byId("timer");
     var left = state.readDeadline - Date.now();
+    var el = byId("timer");
     if (el) {
       el.textContent = "阅读剩余 " + fmtClock2(left);
       el.classList.toggle("warn", left < 60000);
+    }
+    var cd = byId("cdown");
+    if (cd) {
+      cd.innerHTML = '<small>阅读剩余</small>' + fmtClock2(left);
+      cd.classList.toggle("warn", left < 60000);
     }
     if (left <= 0) {
       clearInterval(pagedTimer);
