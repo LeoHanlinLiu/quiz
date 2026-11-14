@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>6.5 第一周 · 第一周周末测试</title>
+<style>
+:root{
+  --ink:#16181d;
+  --ink2:#4b525c;
+  --ink3:#878e99;
+  --line:#dfe4ec;
+  --line2:#e5eaf2;
+  --bg:#f3f4f7;
+  --card:#ffffff;
+  --accent:#1f4fd8;
+  --accent-soft:#f1f5ff;
+  --ok:#12a150;
+  --radius:14px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit}
+input,select,textarea{font-family:inherit;color:var(--ink)}
+::placeholder{color:#a8aeb8}
+
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+.site-head{padding:38px 0 4px}
+.brand{font-size:13px;color:var(--ink3);letter-spacing:.02em}
+.brand b{color:var(--ink2);font-weight:600}
+h1{font-size:30px;line-height:1.28;font-weight:650;letter-spacing:-.01em;margin:10px 0 0}
+.sub{color:var(--ink2);font-size:15px;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:5px 12px;font-size:12.5px;color:var(--ink2);
+}
+.chip b{font-weight:600;color:var(--ink)}
+
+/* ---------- student info ---------- */
+.info-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px 18px;margin:22px 0 26px;
+}
+.info-card .ttl{font-size:13px;color:var(--ink3);margin-bottom:10px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:12.5px;color:var(--ink3);margin-bottom:6px}
+.field label i{color:#d0342c;font-style:normal;margin-left:2px}
+input[type=text],select,textarea{
+  width:100%;height:44px;border:1px solid #dfe3ea;border-radius:10px;
+  background:#fff;padding:0 12px;font-size:15px;outline:none;
+  transition:border-color .15s,box-shadow .15s;
+}
+input[type=text]:focus,select:focus,textarea:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,79,216,.12);
+}
+textarea{height:auto;padding:11px 12px;line-height:1.65;resize:vertical}
+
+/* ---------- sticky bar ---------- */
+.sticky{
+  position:sticky;top:0;z-index:30;
+  background:rgba(243,244,247,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  margin:0 0 22px;
+}
+.sticky .inner{
+  max-width:920px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:14px;
+}
+.snav{display:flex;gap:2px;overflow:auto;flex:1;min-width:0}
+.snav a{
+  color:var(--ink2);text-decoration:none;font-size:13px;white-space:nowrap;
+  padding:7px 10px;border-radius:8px;
+}
+.snav a:hover{background:#e9ecf2;color:var(--ink)}
+.progress{font-size:13px;color:var(--ink2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.progress b{color:var(--ink);font-weight:600}
+.btn{
+  border:0;border-radius:10px;padding:0 18px;height:40px;font-size:14.5px;font-weight:600;
+  background:var(--accent);color:#fff;cursor:pointer;transition:filter .15s,transform .06s;
+  white-space:nowrap;
+}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:#fff;color:var(--ink2);border:1px solid var(--line)}
+.btn.ghost:hover{filter:none;background:#f7f8fa}
+
+/* ---------- section ---------- */
+.sec{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:26px 26px 10px;margin-bottom:20px;scroll-margin-top:70px;
+}
+.sec-head{display:flex;align-items:flex-start;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line2)}
+.sec-no{
+  flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:var(--accent-soft);
+  color:var(--accent);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.sec-head h2{font-size:19px;font-weight:650;margin:0;line-height:30px;letter-spacing:-.01em}
+.sec-desc{font-size:13.5px;color:var(--ink2);margin-top:6px}
+.sec-meta{margin-left:auto;font-size:12.5px;color:var(--ink3);white-space:nowrap;line-height:30px}
+
+/* ---------- item ---------- */
+.item{padding:22px 0;border-top:1px solid var(--line2)}
+.item:first-of-type{border-top:0}
+.item-top{display:flex;align-items:center;gap:12px}
+.no{
+  flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:#e9eef7;color:#4a5670;
+  font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;
+  font-variant-numeric:tabular-nums;
+}
+.word{font-size:18px;font-weight:700;letter-spacing:.01em;color:#0d1220}
+.play{
+  display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px;
+  border:1px solid #d9e0ec;background:#fff;border-radius:999px;cursor:pointer;
+  font-size:13px;color:#2a3a55;font-weight:500;transition:all .15s;
+}
+.play:hover{border-color:#b9c6dd;background:#f7f9fd}
+.play.playing{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.play svg{width:13px;height:13px;fill:currentColor}
+.plays{font-size:12px;color:var(--ink3);margin-left:2px;font-variant-numeric:tabular-nums}
+
+.fields{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.f-item{display:flex;align-items:center;gap:8px}
+.f-item span{font-size:12.5px;color:var(--ink3);white-space:nowrap}
+select.pos{width:126px;height:38px;font-size:14px;padding:0 10px}
+input.mn{height:38px;width:320px;font-size:14.5px}
+
+".opts-label{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12px;color:#6b7488}
+.opts-label::after{content:"";flex:1;height:1px;background:#e5eaf2}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:8px;margin-top:10px}
+.opt{
+  display:flex;align-items:center;gap:9px;padding:10px 12px;border:1.5px solid #d5dce8;
+  border-radius:9px;background:#fff;cursor:pointer;font-size:14px;color:#31363f;
+  transition:all .13s;text-align:left;line-height:1.35;
+}
+.opt:hover{border-color:#93a6c6;background:#f7faff}
+.opt b{font-weight:700;color:#8a93a5;font-size:12.5px;width:18px;height:18px;flex:0 0 auto;
+  display:inline-flex;align-items:center;justify-content:center;border-radius:5px;background:#eef1f7;transition:all .13s}
+.opt.on{border-color:var(--accent);background:#e7f0ff;color:#0b2352;font-weight:600;
+  box-shadow:0 0 0 3px rgba(31,79,216,.14)}
+.opt.on b{background:var(--accent);color:#fff}
+
+/* ---------- dictation ---------- */
+.dict-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.dict-cell{border:1px solid var(--line);border-radius:11px;padding:9px 10px 10px;background:#fcfcfd}
+.dict-head{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.dict-head .no{width:22px;height:22px;border-radius:6px;font-size:11.5px;background:#eef1f6}
+.icon-play{
+  width:26px;height:26px;border-radius:50%;border:1px solid #dde3ee;background:#fff;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+}
+.icon-play svg{width:11px;height:11px;fill:#3b4657}
+.icon-play:hover{border-color:var(--accent);background:var(--accent-soft)}
+.icon-play:hover svg{fill:var(--accent)}
+.dict-cell input{height:34px;font-size:14.5px;padding:0 8px;border-radius:8px;text-align:center}
+.dict-bar{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.dict-bar .hint{font-size:12.5px;color:var(--ink3)}
+.dict-status{font-size:12.5px;color:var(--accent);font-variant-numeric:tabular-nums}
+
+/* ---------- translate ---------- */
+.tr{border:1px solid var(--line);border-radius:12px;padding:14px 16px 16px;margin-top:14px;background:#fcfcfd}
+.tr .zh{font-size:15px;color:#22262d;line-height:1.75}
+.tr .zh .no{display:inline-flex;vertical-align:-2px;margin-right:8px}
+.tr textarea{margin-top:10px;min-height:86px;background:#fff}
+.count{font-size:12px;color:var(--ink3);text-align:right;margin-top:4px;font-variant-numeric:tabular-nums}
+
+/* ---------- submit ---------- */
+.submit-block{padding:10px 0 44px;text-align:center}
+.btn-submit{height:50px;padding:0 44px;font-size:16px;border-radius:12px;box-shadow:0 6px 18px rgba(31,79,216,.22)}
+.submit-note{font-size:12.5px;color:var(--ink3);margin-top:12px}
+.foot{text-align:center;padding:0 0 40px;font-size:12px;color:#9aa1ac}
+.foot button{background:none;border:0;color:#9aa1ac;font-size:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px}
+
+/* ---------- success ---------- */
+.success{display:none;padding:70px 0 40px;text-align:center}
+.success.show{display:block}
+.tick{
+  width:64px;height:64px;border-radius:50%;background:#e9f7ef;color:var(--ok);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+}
+.tick svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.success h2{font-size:24px;font-weight:650;margin:0 0 10px}
+.success p{color:var(--ink2);font-size:14.5px;margin:6px 0}
+.success .box{
+  display:inline-block;text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:14px 20px;margin-top:18px;font-size:13.5px;color:var(--ink2);line-height:1.9;
+}
+.success .box b{color:var(--ink);font-weight:600}
+
+/* ---------- modal ---------- */
+.mask{
+  position:fixed;inset:0;background:rgba(18,21,27,.42);backdrop-filter:blur(2px);
+  display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
+}
+.mask.show{display:flex}
+.modal{
+  background:#fff;border-radius:16px;width:100%;max-width:520px;padding:24px;
+  box-shadow:0 24px 60px rgba(12,16,24,.22);max-height:86vh;overflow:auto;
+}
+.modal.wide{max-width:900px}
+.modal h3{font-size:18px;margin:0 0 8px;font-weight:650}
+.modal p{font-size:14px;color:var(--ink2);margin:0 0 14px}
+.miss{background:#fff8ec;border:1px solid #f2e2c6;border-radius:10px;padding:10px 14px;font-size:13px;color:#7a5411;max-height:180px;overflow:auto;line-height:1.8}
+.modal-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+
+table.rec{width:100%;border-collapse:collapse;font-size:13px}
+table.rec th,table.rec td{border-bottom:1px solid var(--line2);padding:8px 8px;text-align:left;vertical-align:top}
+table.rec th{color:var(--ink3);font-weight:500;font-size:12px;white-space:nowrap}
+table.rec td.detail{font-size:12.5px;color:var(--ink2);line-height:1.7;max-width:420px}
+
+@media (max-width:760px){
+  .site-head{padding:26px 0 0}
+  h1{font-size:23px}
+  .info-grid{grid-template-columns:1fr}
+  .sec{padding:20px 16px 6px;border-radius:14px}
+  .sec-meta{display:none}
+  .sec-head h2{font-size:17px;line-height:26px}
+  .sec-no{width:26px;height:26px;font-size:13px}
+  .fields{flex-direction:column;align-items:stretch}
+  .f-item{justify-content:space-between}
+  select.pos{width:110px}
+  input.mn{width:100%;flex:1}
+  select.pos{width:126px}
+  .opts{grid-template-columns:1fr}
+  .dict-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sticky .inner{padding:8px 14px;gap:8px}
+  .snav{display:none}
+  .btn-submit{width:100%}
+  .word{font-size:17px}
+}
+
+/* ---------- 音频（只播一遍） ---------- */
+.tape{margin:16px 0 8px;border:1px solid #dbe4f6;background:#f7f9ff;border-radius:12px;padding:14px 16px}
+.tape-main{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tape-hint{font-size:12.5px;color:#7c8492}
+.tape-live{margin-top:10px;font-size:13px;color:#2a3a55;line-height:1.6}
+.tape-row{display:flex;align-items:baseline;gap:10px}
+.tape-left{font-size:12.5px;color:#8a9099}
+.tape-count{color:var(--accent);font-size:15px}
+.tape-bar{height:6px;background:#e2e9f8;border-radius:999px;overflow:hidden;margin-top:8px}
+.tape-bar i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .25s ease}
+.tape-btn:disabled{background:#e7ebf3;color:#8b93a0;box-shadow:none;cursor:default;filter:none}
+.f-label{font-size:12.5px;color:var(--ink3);white-space:nowrap}
+.f-listen .no{width:30px;height:30px}
+
+@media (max-width:760px){
+  .tape{padding:12px 12px}
+  .tape-hint{display:none}
+  .f-listen{flex-wrap:nowrap}
+  .f-listen .f-label{display:none}
+}
+
+.success-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+
+/* ---------- 结果页 ---------- */
+.result{padding:34px 0 70px}
+.res-head{text-align:center}
+.res-score{font-size:56px;font-weight:700;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.res-score small{font-size:18px;font-weight:500;color:#98a1ad;margin-left:4px}
+.res-meta{color:var(--ink2);font-size:13.5px;margin-top:6px}
+.res-secs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.res-sec{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 16px;min-width:104px}
+.res-sec b{display:block;font-size:17px;font-variant-numeric:tabular-nums}
+.res-sec span{font-size:11.5px;color:var(--ink3)}
+.res-sync{margin-top:16px;font-size:12.5px;color:var(--ink3)}
+.rsec{background:#fff;border:1px solid var(--line);border-radius:14px;margin:16px 0;overflow:hidden}
+.rsec-head{display:flex;align-items:center;gap:10px;padding:13px 18px;background:#fbfcfe;border-bottom:1px solid var(--line2)}
+.rsec-head h3{font-size:15.5px;margin:0;font-weight:600}
+.rsec-score{margin-left:auto;font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.ritem{display:flex;gap:12px;padding:12px 18px;border-top:1px solid var(--line2)}
+.ritem:first-of-type{border-top:0}
+.rno{flex:0 0 auto;width:26px;height:26px;border-radius:7px;background:#f3f5f9;color:#69717d;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+.rbody{flex:1;min-width:0}
+.rline{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.rword{font-size:15.5px;font-weight:600}
+.rpts{font-size:12px;color:var(--ink3);margin-left:auto;font-variant-numeric:tabular-nums}
+.rfield{display:flex;gap:6px;align-items:baseline;font-size:13.5px;line-height:1.8;flex-wrap:wrap}
+.rfield .lab{flex:0 0 auto;width:34px;color:var(--ink3);font-size:12.5px}
+.rfield .right{color:#0f7b45}
+.rfield .wrong{color:#c0392b;text-decoration:line-through;text-decoration-color:rgba(192,57,43,.35)}
+.rfield .ans{color:#0f7b45;font-size:12.5px;margin-left:4px}
+.rfield .blank,.rfield .quiet{color:#9aa1ac}
+.rfield .mine{color:#22262d}
+.rfield .ans-line,.ans-line{color:#0f7b45}
+.badge{font-size:11.5px;border-radius:999px;padding:1px 8px;line-height:18px;white-space:nowrap}
+.badge.ok{background:#e9f7ef;color:#0f7b45}
+.badge.no{background:#fdecea;color:#c0392b}
+.badge.neutral{background:#eef1f6;color:#6b7280}
+.rdict{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:14px 18px}
+.rdict-cell{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fcfcfd}
+.rdict-cell.bad{border-color:#f4d6d2;background:#fffafa}
+.rdict-cell.ok{border-color:#d6eadd;background:#fbfefc}
+.rdc-top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.rdc-mine{font-size:14px;color:#22262d;word-break:break-word}
+.rdict-cell.bad .rdc-mine{color:#c0392b;text-decoration:line-through;text-decoration-color:rgba(192,57,43,.35)}
+.rdict-cell.bad .rdc-mine.blank{color:#9aa1ac;text-decoration:none}
+.rdc-key{font-size:13px;color:#0f7b45;margin-top:2px}
+.res-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.res-note{text-align:center;color:var(--ink3);font-size:12.5px;margin-top:14px;line-height:1.8}
+
+@media (max-width:760px){
+  .res-score{font-size:44px}
+  .rdict{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rsec-head,.ritem{padding-left:14px;padding-right:14px}
+}
+
+/* ---------- 真题：笔记填空 / 阅读原文 ---------- */
+.note-instr{font-size:13px;color:#4b525c;margin:12px 0 0;line-height:1.7}
+.note-notice{display:inline-block;font-size:12.5px;color:#8a5a12;background:#fff8ec;border:1px solid #f2e2c6;border-radius:8px;padding:4px 10px;margin-top:10px}
+.notes-title{text-align:center;font-size:18px;font-weight:700;margin:22px 0 8px}
+.notes-table{margin-top:8px;border:1px solid #dfe4ec;border-radius:12px;overflow:hidden}
+.n-row{display:grid;grid-template-columns:255px 1fr;gap:14px;padding:11px 16px;border-top:1px solid #eef1f6;font-size:14px;align-items:start}
+.n-row:first-child{border-top:0}
+.n-row.example{background:#fbfcfe;color:#6b7488}
+.n-label{color:#39404e;line-height:2.2}
+.n-text{line-height:2.2;min-width:0}
+.n-group{font-weight:650;font-size:14.5px;margin:20px 0 6px}
+.n-bullet{position:relative;padding-left:20px;font-size:14px;line-height:2.2}
+.n-bullet::before{content:"";position:absolute;left:6px;top:15px;width:5px;height:5px;border-radius:50%;background:#93a6c6}
+.notes-table .blank{width:150px;height:30px;border:0;border-bottom:1.6px solid #93a6c6;background:transparent;border-radius:6px 6px 0 0;padding:0 6px;font-size:14px;text-align:center;outline:none;transition:all .15s;vertical-align:middle}
+.notes-table .blank:hover{background:#eef4ff}
+.notes-table .blank:focus{border-bottom-color:var(--accent);background:#e9f1ff;box-shadow:0 2px 0 0 var(--accent)}
+.passage{background:#fbfcfe;border:1px solid #dfe4ec;border-radius:12px;padding:16px 18px;margin:14px 0 6px;max-height:620px;overflow:auto}
+.passage h4{margin:0 0 10px;font-size:15px}
+.passage p{margin:0 0 10px;font-size:13.6px;line-height:1.9;color:#2a2f38}
+@media (max-width:760px){
+  .n-row{grid-template-columns:1fr;gap:2px}
+  .notes-table .blank{width:120px}
+  .passage{max-height:none}
+}
+
+</style>
+</head>
+<body>
+
+<div id="quiz-root">
+  <div class="wrap">
+    <header class="site-head">
+      <div class="brand" id="h-brand"></div>
+      <h1 id="h-title"></h1>
+      <div class="sub" id="h-sub"></div>
+      <div class="chips" id="chips"></div>
+    </header>
+
+    <section class="info-card">
+      <div class="ttl">填写后开始答题　<span id="intro" style="color:#9aa1ac"></span></div>
+      <div class="info-grid">
+        <div class="field">
+          <label for="in-name">姓名<i>*</i></label>
+          <input type="text" id="in-name" placeholder="请输入真实姓名" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="in-cls">教室号<i>*</i></label>
+          <input type="text" id="in-cls" placeholder="如：308" autocomplete="off">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <nav class="snav" id="snav"></nav>
+      <div class="progress" id="prog"></div>
+      <button class="btn" id="btn-submit">提交答卷</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="sections"></div>
+
+    <div class="submit-block">
+      <button class="btn btn-submit" id="btn-top">检查并提交</button>
+      <div class="submit-note">提交后不能再修改，答案会记录你的提交时间。</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="foot">
+      本页为学为贵内部测试页 · 题目与答案归授课老师所有
+      <span id="ver" style="margin-left:10px;color:#c2c7cf"></span>
+    </div>
+  </div>
+</div>
+
+<div id="result-wrap" style="display:none">
+  <div class="wrap"><div class="result" id="result"></div></div>
+</div>
+
+<div class="mask" id="mask-ask">
+  <div class="modal">
+    <h3 id="ask-title">确认提交答卷？</h3>
+    <p id="ask-desc"></p>
+    <div class="miss" id="miss-box" style="display:none"></div>
+    <div class="modal-foot">
+      <button class="btn ghost" id="ask-cancel">回去检查</button>
+      <button class="btn" id="ask-ok">确认提交</button>
+    </div>
+  </div>
+</div>
+
+<div class="mask" id="mask-rec">
+  <div class="modal wide">
+    <h3>本机提交记录（原型阶段）</h3>
+    <p>这是老师最终会看到的答案形态。正式版会直接从服务器表格读取，不受这台电脑限制。</p>
+    <table class="rec">
+      <thead><tr><th>提交时间</th><th>姓名</th><th>教室号</th><th>总分</th><th>答题明细</th></tr></thead>
+      <tbody id="rec-body"></tbody>
+    </table>
+    <div class="modal-foot">
+      <button class="btn ghost" id="rec-reset">重置本机答卷</button>
+      <button class="btn ghost" id="rec-clear">清空本机记录</button>
+      <button class="btn ghost" id="rec-csv">导出 Excel(CSV)</button>
+      <button class="btn" id="rec-close">关闭</button>
+    </div>
+  </div>
+</div>
+
+<script>
+window.__QUIZ__ = {"meta":{"brand":"学为贵","course":"6.5 第一周","title":"第一周周末测试","subtitle":"听力 Section 1 · 阅读 Passage","minutes":25,"quizId":"real-6.5-w1-20261114-235256","intro":"共 16 题 · 听力音频点「开始播放」后播放一遍 · 每空 1 分，满分 16 分 · 提交后立刻出分。","supabaseUrl":"https://ulqqkenxnbzoxaqrdtgg.supabase.co","supabaseAnonKey":"sb_publishable_m3whnOXaHbvvL7ODe4scmA_KK5EhTa7","relayUrl":"","文件名":"weekend1.html","build":"2026-11-14 23:58","submitUrl":""},"sections":[{"id":"listen1","no":"一","title":"Section 1 · 听力笔记填空","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":1},{"no":2},{"no":3},{"no":4},{"no":5},{"no":6},{"no":7},{"no":8},{"no":9},{"no":10}],"instruction":"Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.","heading":"Driving school","rows":[{"label":"Looking for driving lessons given during the:","text":"weekends","example":true},{"label":"Address:","text":"{1} Road"},{"label":"Drive:","text":"the city center"},{"label":"","text":"{2} above the city"},{"label":"Teacher's name:","text":"Allen {3}"},{"label":"Popular type of car on roads:","text":"{4}"},{"label":"Best time to take lessons:","text":"practice during the {5}"},{"label":"Safety driving depends on:","text":"good {6}"},{"label":"Obtain:","text":"a driving {7}"},{"label":"Final test fee:","text":"$ {8}"},{"label":"Duration of test:","text":"approximately {9} minutes"},{"label":"More advice:","text":"keep a driving {10}"}],"audio":"audio/section1.mp3"},{"id":"read1","no":"二","title":"Reading · The economic importance of coral reefs","desc":"","type":"notes","points":1,"score":"每题 1 分","gap":0,"items":[{"no":11},{"no":12},{"no":13},{"no":14},{"no":15},{"no":16}],"instruction":"Choose NO MORE THAN TWO WORDS from the passage for each answer.","rows":[{"kind":"group","text":"How coral-reef-based resources protect people during difficult times"},{"kind":"group","text":"Coral reefs can provide:"},{"kind":"bullet","text":"a resource bank, e.g. for keeping clams and {11}"},{"kind":"bullet","text":"a seasonal back-up, when {12} products are insufficient, e.g. in northern Mozambique"},{"kind":"bullet","text":"a tourist attraction, e.g. {13} tours in the Caribbean"},{"kind":"group","text":"Benefits for local people include:"},{"kind":"bullet","text":"The creation of jobs."},{"kind":"bullet","text":"Improvements to roads and {14}"},{"kind":"group","text":"Important considerations:"},{"kind":"bullet","text":"Development must be based on appropriate principles."},{"kind":"bullet","text":"Need for {15}"},{"kind":"bullet","text":"Poorly-planned development can create {16} with local fishers."}],"passage":{"title":"The economic importance of coral reefs","paragraphs":["Reef flats and shallow reef lagoons are accessible on foot, without the need for a boat, and so allow women, children and the elderly to engage directly in manual harvesting, or 'reef-gleaning'. This is a significant factor distinguishing reef-based fisheries from near-shore sea fisheries. Near-shore fisheries are typically the domain of adult males, in particular where they involve the use of boats, with women and children restricted mainly to shore-based activities. However, in a coral-reef fishery the physical accessibility of the reef opens up opportunities for direct participation by women, and consequently increases their independence and the importance of their role in the community. It also provides a place for children to play, and to acquire important skills and knowledge for later in life. For example, in the South West Island of Tobi, in the Pacific Ocean, young boys use simple hand lines with a loop and bait at the end to develop the art of fishing on the reef. Similarly, in the Surin Islands of Thailand, young Moken boys spend much of their time playing, swimming and diving in shallow reef lagoons, and in doing so build crucial skills for their future daily subsistence.","Secondary occupations, such as fish processing and marketing activities, are often dominated by women, and offer an important survival strategy for households with access to few other physical assets (such as boats and gear), for elderly women, widows, or the wives of infirm men. On Ulithi Atoll in the western Pacific, women have a distinct role and rights in the distribution of fish catches. This is because the canoes, made from mahogany logs from nearby Yap Island, are obtained through the exchange of cloth made by the women of Ulithi. Small-scale reef fisheries support the involvement of local women traders and their involvement can give them greater control over the household income, and in negotiating for loans or credit. Thus their role is not only important in providing income for their families, it also underpins the economy of the local village.","Poor people with little access to land, labour and financial resources are particularly reliant on exploiting natural resources, and consequently they are vulnerable to seasonal changes in availability of those resources. The diversity of coral reef fisheries, combined with their physical accessibility and the protection they provide against bad weather, make them relatively stable compared with other fisheries or land-based agricultural production.","In many places, the reef may even act as a resource bank, used as a means of saving food for future times of need. In Manus, Papua New Guinea, giant clams are collected and held in walled enclosures on the reef, until they are needed during periods of rough weather. In Palau, sea cucumbers are seldom eaten during good weather in an effort to conserve their populations for months during which rough weather prohibits good fishing.","Coral reef resources also act as a buffer against seasonal lows in other sectors, particularly agriculture. For example, in coastal communities in northern Mozambique, reef harvests provide key sources of food and cash when agricultural production is low, with the peak in fisheries production coinciding with the period of lowest agricultural stocks. In Papua New Guinea, while agriculture is the primary means of food production, a large proportion of the coastal population engages in sporadic subsistence fishing.","In many coral-reef areas, tourism is one of the main industries bringing employment, and in many cases, is promoted to provide alternatives to fisheries-based livelihoods, and to ensure that local reef resources are conserved. In the Caribbean alone, tours based on scuba diving have attracted 20 million people in one year. The upgrading of roads and communications associated with the expansion of tourism may also bring benefits to local communities. However, plans for development must be considered carefully. The ability of the poorer members of the community to access the benefits of tourism is far from guaranteed and requires development guided by social, cultural and environmental principles. There is growing recognition that sustainability is a key requirement, as encompassed in small-scale eco-tourism activities, for instance.","Where tourism development has not been carefully planned, and the needs and priorities of the local community have not been properly recognised, conflict has sometimes arisen between tourism and local, small-scale fishers."]}}]};
+window.__AUDIO__ = {};
+window.__KEY__ = "A1ULRAIBDBQcEAoSTVpGRRdRDksbQ0FHV0QLVV0NKldfTQ1ZWVxRXwRFAVFXX00NWVlcUQtVOlBdVUtIDwgQSRQZGRRaFAcaWBcSaxBYFwUTRVMoFFYNEAMQDFgMRUwfBh4fX0ESCBYjVTRYBRYFE0tUVRBrBVtHD0VXU1pWEFFcRQ8SFV5TT0khD1NFRlkVFhNEElc0BwESEgcUQlccDxAbGg1IQEMQDFgsRUkQDEsnUB4QEABaTUdWUxQHCVpXQkEUQlc8DwYQCA5FV0IQawVbRw9GV1NaVhBRXEUPEhVeU09JIQ9eWVFTFgQCD11VSxZEUVVcVR1VOlBdVUtCDwgQSRQZGRRaFAcaWBcSaxADSFU6UF1VS0MPCBBJFBkZFFoUBxpYFxJrEAVIVTpQXVVLSx0QChJNWhYJXgYQGwkPCBBpFBYYE0gTGgYRDx4QEFIRFhVUUygUBwESEkBTGRNWD0tVElgcAxIIFgNVBkMCAgwIXhAKEm1aBAJMURYcGVhfUldEC1U6UF1VS0sfEAoSTVoWCV4GEBsJDwgQaRQZEBVEEgAFDlhAUV4UJQpLDVNEWlgXEksQVxYEEEgDBktADWkSQVUNFQYNFRwfE0NVEm9LVFdFHEVXU1pWEFFcRQ8SFV5TT0khD1FfX1sNGQ5OEAEAFUNBEm9LVFdFHERXU1pWEFFcRQ8SFV5TT0khD0FFQUIZHglMExwFE1lLEm9LVFdFHEdXU1pWEFFcRQ8SFV5TT0khD1FfXFAUHgRZUygUB1A=";
+(function () {
+  "use strict";
+
+  var QUIZ = window.__QUIZ__;
+  var AUDIO = window.__AUDIO__ || {};
+  var META = QUIZ.meta;
+  var STORE = "quiz:" + META.quizId;
+  var SUBS = "quiz:subs:" + META.quizId;
+
+  /* ---------------- 答案键（混淆存放，仅供页内判分） ---------------- */
+  var KEY = {};
+  try {
+    var bin = atob(window.__KEY__ || "");
+    var buf = new Uint8Array(bin.length);
+    var salt = "xwg-quiz-2026";
+    for (var i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i) ^ salt.charCodeAt(i % salt.length);
+    KEY = JSON.parse(new TextDecoder("utf-8").decode(buf));
+  } catch (e) { KEY = {}; }
+
+  var TOTAL = 0;
+  QUIZ.sections.forEach(function (s) { TOTAL += s.items.length; });
+
+  /* ---------------- state ---------------- */
+  function blank() {
+    return {
+      info: { name: "", cls: "" },
+      answers: {},
+      audio: {},
+      startedAt: Date.now(),
+      submitted: false,
+      submittedAt: null,
+      synced: null
+    };
+  }
+  var state = blank();
+  try {
+    var raw = localStorage.getItem(STORE);
+    if (raw) {
+      var saved = JSON.parse(raw);
+      state = Object.assign(blank(), saved);
+      state.answers = saved.answers || {};
+      state.audio = saved.audio || {};
+    }
+  } catch (e) { /* ignore */ }
+
+  var saveTimer = null;
+  function save() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {}
+    }, 200);
+  }
+
+  function keyOf(sec, item) { return sec.id + ":" + item.no; }
+  function ans(key) {
+    if (!state.answers[key]) state.answers[key] = {};
+    return state.answers[key];
+  }
+  function secById(id) {
+    return QUIZ.sections.filter(function (s) { return s.id === id; })[0];
+  }
+  function byId(id) { return document.getElementById(id); }
+
+  /* ---------------- helpers ---------------- */
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function norm(s) {
+    return String(s == null ? "" : s)
+      .replace(/[\s\u3000]+/g, "")
+      .replace(/[\s\u3000…]+/g, "")
+      .replace(/[,，。.、;；:：!！?？"'“”‘’（）()\[\]【】《》<>~～\-—_]/g, "")
+      .toLowerCase();
+  }
+  // 中文含义判分：答案用「；/」拆成若干义项，命中任一项即算对
+  function meaningOK(mine, keyMeaning) {
+    var s = norm(mine), k = norm(keyMeaning);
+    if (!s || !k) return false;
+    var parts = String(keyMeaning).split(/[；;\/|、,，]/).map(norm).filter(Boolean);
+    if (!parts.length) parts = [k];
+    return parts.some(function (p) {
+      if (s === p) return true;
+      var shorter = s.length < p.length ? s : p;
+      if (shorter.length < 2) return false;
+      return p.indexOf(s) >= 0 || s.indexOf(p) >= 0;
+    });
+  }
+
+  function textOK(mine, answers) {
+    var s = norm(mine);
+    if (!s) return false;
+    return (answers || []).some(function (a) { return norm(a) === s; });
+  }
+
+  function blanksHTML(sec, text) {
+    return String(text || "").replace(/\{(\d+)\}/g, function (m, n) {
+      var a = state.answers[sec.id + ":" + n] || {};
+      return '<input class="blank" type="text" data-sec="' + sec.id + '" data-no="' + n + '" data-f="text" ' +
+        'value="' + esc(a.text || "") + '" autocomplete="off" spellcheck="false">';
+    });
+  }
+
+  function fmtClock(sec) {
+    var m = Math.floor(sec / 60), r = Math.floor(sec % 60);
+    return m + ":" + (r < 10 ? "0" + r : r);
+  }
+
+  function clipHTML(sec) {
+    var done = (state.audio[sec.id] || "idle") !== "idle";
+    return '<div class="tape" data-clip-wrap="' + sec.id + '">' +
+      '<div class="tape-main">' +
+      (done ? '<button class="btn tape-btn" disabled>已播放完毕</button>'
+            : '<button class="btn tape-btn" data-clip="' + sec.id + '">开始播放音频</button>') +
+      '<span class="tape-hint">音频只播放一遍，不能暂停、不能重听</span>' +
+      '</div>' +
+      '<div class="tape-live" data-clip-live="' + sec.id + '">' +
+      (done ? '<span style="color:#8a9099">本次音频已播放完毕。</span>' : "") +
+      "</div></div>";
+  }
+
+  function startClip(secId, url) {
+    var sec = secById(secId);
+    if (!sec) return;
+    if ((state.audio[secId] || "idle") !== "idle") return;
+    if (!window.confirm("音频只播放一遍，开始后不能暂停、不能重听。\n请先戴好耳机、把音量调开。现在开始吗？")) return;
+
+    var btn = document.querySelector('[data-clip="' + secId + '"]');
+    if (btn) { btn.disabled = true; btn.textContent = "播放中…"; }
+    var live = document.querySelector('[data-clip-live="' + secId + '"]');
+
+    var a = new Audio(url);
+    var ok = function () {
+      state.audio[secId] = "done";
+      save();
+    };
+    var fail = function () {
+      if (btn) { btn.disabled = false; btn.textContent = "开始播放音频"; }
+      if (live) live.innerHTML = '<span style="color:#c0392b">浏览器拦住了音频，请再点一次「开始播放音频」。</span>';
+    };
+    var pr = a.play();
+    if (pr && pr.then) pr.then(ok).catch(fail); else ok();
+    var dur = 0;
+    a.addEventListener("loadedmetadata", function () { dur = a.duration || 0; });
+    a.addEventListener("timeupdate", function () {
+      if (live) live.innerHTML = '<div class="tape-row"><b>正在播放</b><span class="tape-left">' +
+        fmtClock(a.currentTime) + (dur ? " / " + fmtClock(dur) : "") + "</span></div>" +
+        '<div class="tape-bar"><i style="width:' + (dur ? Math.round(a.currentTime / dur * 100) : 0) + '%"></i></div>';
+    });
+    a.addEventListener("ended", function () {
+      if (live) live.innerHTML = '<span style="color:#8a9099">音频播放完毕。</span>';
+      if (btn) btn.textContent = "已播放完毕";
+    });
+  }
+
+  function notesBody(sec) {
+    var out = [];
+    if (sec.audio) out.push(clipHTML(sec));
+    if (sec.instruction) out.push('<div class="note-instr">' + esc(sec.instruction) + "</div>");
+    if (sec.notice) out.push('<div class="note-notice">' + esc(sec.notice) + "</div>");
+    if (sec.passage) {
+      out.push('<div class="passage"><h4>' + esc(sec.passage.title) + "</h4>");
+      (sec.passage.paragraphs || []).forEach(function (p) { out.push("<p>" + esc(p) + "</p>"); });
+      out.push("</div>");
+    }
+    if (sec.heading) out.push('<div class="notes-title">' + esc(sec.heading) + "</div>");
+    out.push('<div class="notes-table">');
+    (sec.rows || []).forEach(function (row) {
+      if (row.kind === "group") { out.push('<div class="n-group">' + esc(row.text) + "</div>"); return; }
+      if (row.kind === "bullet") { out.push('<div class="n-bullet">' + blanksHTML(sec, row.text) + "</div>"); return; }
+      out.push('<div class="n-row' + (row.example ? " example" : "") + '">' +
+        '<div class="n-label">' + esc(row.label || "") + "</div>" +
+        '<div class="n-text">' + blanksHTML(sec, row.text) + "</div></div>");
+    });
+    out.push("</div>");
+    return out.join("");
+  }
+
+  function itemsDone(sec, item) {
+    var a = state.answers[keyOf(sec, item)] || {};
+    if (sec.type === "pos_word") return !!(a.pos && String(a.meaning || "").trim() && a.choice);
+    if (sec.type === "listen_word") return !!(String(a.meaning || "").trim() && a.choice);
+    return !!String(a.text || "").trim();
+  }
+  function sectionDone(sec) {
+    var n = 0;
+    sec.items.forEach(function (i) { if (itemsDone(sec, i)) n++; });
+    return n;
+  }
+  function totalDone() {
+    var n = 0;
+    QUIZ.sections.forEach(function (s) { n += sectionDone(s); });
+    return n;
+  }
+  function fmtTime(ts) {
+    var d = new Date(ts);
+    function p(n) { return n < 10 ? "0" + n : "" + n; }
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+  }
+  function fmtDur(ms) {
+    var m = Math.max(0, Math.round(ms / 60000));
+    if (m < 1) return "不到 1 分钟";
+    return m + " 分钟";
+  }
+
+  /* ---------------- render quiz ---------------- */
+  function chipHTML(sec, item) {
+    var a = state.answers[keyOf(sec, item)] || {};
+    var L = ["A", "B", "C", "D"];
+    return item.opts.map(function (o, idx) {
+      var letter = L[idx];
+      return '<button type="button" class="opt' + (a.choice === letter ? " on" : "") +
+        '" data-sec="' + sec.id + '" data-no="' + item.no + '" data-letter="' + letter + '">' +
+        "<b>" + letter + "</b><span>" + esc(o) + "</span></button>";
+    }).join("");
+  }
+
+  function tapeHTML(sec) {
+    var st = state.audio[sec.id] || "idle";
+    var n = sec.items.length;
+    var gap = sec.gap || 5;
+    var btn = st === "idle"
+      ? '<button type="button" class="btn tape-btn" data-tape="' + sec.id + '">开始播放（' + n + " 个词）</button>"
+      : st === "running"
+        ? '<button type="button" class="btn tape-btn" disabled>播放中…</button>'
+        : '<button type="button" class="btn tape-btn" disabled>已播放完毕</button>';
+    var live = st === "done" || st === "running"
+      ? '<div class="tape-live" data-tape-live="' + sec.id + '">' + (st === "done" ? "本次音频已播放完毕。" : "") + "</div>"
+      : '<div class="tape-live" data-tape-live="' + sec.id + '"><span style="color:#8a9099">音频只播放一遍，不能暂停、不能重听；' +
+        "每个单词间隔 " + gap + " 秒。</span></div>";
+    return '<div class="tape" data-tape-wrap="' + sec.id + '">' +
+      '<div class="tape-main">' + btn + '<span class="tape-hint">点开始后 2 秒开始播放</span></div>' +
+      live + "</div>";
+  }
+
+  function renderSections() {
+    var out = [];
+    QUIZ.sections.forEach(function (sec) {
+      var meta = "共 " + sec.items.length + " 题" + (sec.score ? " · " + sec.score : "");
+      out.push('<section class="sec" id="sec-' + sec.id + '">');
+      out.push('<div class="sec-head"><div class="sec-no">' + sec.no + "</div><div>" +
+        "<h2>" + esc(sec.title) + '</h2><div class="sec-desc">' + esc(sec.desc) + "</div></div>" +
+        '<div class="sec-meta">' + meta + "</div></div>");
+
+      if (sec.type === "notes") {
+        out.push(notesBody(sec));
+        out.push("</section>");
+        return;
+      }
+      if (sec.type === "dictation") {
+        out.push(tapeHTML(sec));
+        out.push('<div class="dict-grid">');
+        sec.items.forEach(function (it) {
+          var k = keyOf(sec, it);
+          var a = state.answers[k] || {};
+          out.push('<div class="dict-cell"><div class="dict-head"><span class="no">' + it.no + "</span></div>" +
+            '<input type="text" data-sec="' + sec.id + '" data-no="' + it.no + '" data-f="text" ' +
+            'value="' + esc(a.text || "") + '" placeholder="拼写" autocomplete="off" spellcheck="false"></div>');
+        });
+        out.push("</div>");
+      } else if (sec.type === "translate") {
+        sec.items.forEach(function (it) {
+          var k = keyOf(sec, it);
+          var a = state.answers[k] || {};
+          out.push('<div class="tr"><div class="zh"><span class="no">' + it.no + "</span>" + esc(it.zh) + "</div>" +
+            '<textarea data-sec="' + sec.id + '" data-no="' + it.no + '" data-f="text" ' +
+            'placeholder="用英文写出这句话…" spellcheck="false">' + esc(a.text || "") + "</textarea>" +
+            '<div class="count" data-count="' + k + '">' + String(a.text || "").trim().length + " 字符</div></div>");
+        });
+      } else {
+        if (sec.type === "listen_word") out.push(tapeHTML(sec));
+        sec.items.forEach(function (it) {
+          var a = state.answers[keyOf(sec, it)] || {};
+          var mnInput = '<input class="mn" type="text" data-sec="' + sec.id + '" data-no="' + it.no + '" data-f="meaning" value="' +
+            esc(a.meaning || "") + '" autocomplete="off">';
+          if (sec.type === "pos_word") {
+            out.push('<div class="item"><div class="item-top"><span class="no">' + it.no + "</span>" +
+              '<span class="word">' + esc(it.word) + "</span></div>");
+            out.push('<div class="fields"><div class="f-item"><span>词性</span>' +
+              '<select class="pos" data-sec="' + sec.id + '" data-no="' + it.no + '" data-f="pos">' + posOptions(a.pos) + "</select></div>" +
+              '<div class="f-item"><span>中文含义</span>' +
+              '<input class="mn" type="text" data-sec="' + sec.id + '" data-no="' + it.no + '" data-f="meaning" value="' + esc(a.meaning || "") +
+              '" placeholder="写中文意思，多个义项用分号隔开" autocomplete="off"></div></div>');
+          } else {
+            out.push('<div class="item"><div class="fields f-listen"><span class="no">' + it.no + "</span>" +
+              '<span class="f-label">中文含义</span>' + mnInput + "</div>");
+          }
+          out.push('<div class="opts-label">选择正确的同义替换</div>');
+          out.push('<div class="opts">' + chipHTML(sec, it) + "</div>");
+          out.push("</div>");
+        });
+      }
+      out.push("</section>");
+    });
+    byId("sections").innerHTML = out.join("");
+  }
+
+  function posOptions(cur) {
+    var list = ["", "v.", "n.", "adj.", "adv.", "prep.", "conj.", "num.", "pron.", "短语"];
+    return list.map(function (p) {
+      var label = p === "" ? "请选择词性" : p;
+      return '<option value="' + p + '"' + (cur === p ? " selected" : "") + ">" + label + "</option>";
+    }).join("");
+  }
+
+  function updateProgress() {
+    var n = totalDone();
+    var el = byId("prog");
+    if (el) el.innerHTML = "已完成 <b>" + n + "</b> / " + TOTAL;
+  }
+
+  /* ---------------- 单次播放 ---------------- */
+  var player = null;
+  function playOnce(uri) {
+    if (!uri) return;
+    if (!player) player = new Audio();
+    try {
+      player.pause();
+      player.currentTime = 0;
+      player.src = uri;
+      var p = player.play();
+      if (p && p.catch) p.catch(function () {});
+    } catch (e) {}
+  }
+
+  function tapeLive(sec, i) {
+    var el = document.querySelector('[data-tape-live="' + sec.id + '"]');
+    if (!el) return;
+    var gap = sec.gap || 5;
+    var n = sec.items.length;
+    var left = Math.max(0, (n - 1 - i) * gap);
+    el.innerHTML = '<div class="tape-row"><b>第 ' + (i + 1) + " / " + n + ' 个</b>' +
+      '<span class="tape-left">约剩 ' + left + " 秒</span></div>" +
+      '<div class="tape-bar"><i style="width:' + Math.round(((i + 1) / n) * 100) + '%"></i></div>';
+  }
+
+  function startTape(secId) {
+    var sec = secById(secId);
+    if (!sec) return;
+    if ((state.audio[secId] || "idle") !== "idle") return;
+    if (!window.confirm("点“确定”后 2 秒开始播放，只放一遍，不能暂停、不能重听。\n请先戴好耳机、把音量调开。现在开始吗？")) return;
+
+    state.audio[secId] = "running";
+    save();
+
+    var btn = document.querySelector('[data-tape="' + secId + '"]');
+    if (btn) { btn.disabled = true; btn.textContent = "播放中…"; }
+    var hint = document.querySelector('[data-tape-wrap="' + secId + '"] .tape-hint');
+    if (hint) hint.style.display = "none";
+
+    var live = document.querySelector('[data-tape-live="' + secId + '"]');
+    var gap = (sec.gap || 5) * 1000;
+    var n = sec.items.length;
+
+    // 点确认后 2 秒开始播第一个词，之后按设置的间隔往下播
+    var LEAD = 2000;
+    var live2 = document.querySelector('[data-tape-live="' + secId + '"]');
+    if (live2) live2.innerHTML = '<div class="tape-row"><b class="tape-count">2 秒后开始</b><span class="tape-left">请准备好</span></div>';
+
+    sec.items.forEach(function (it, i) {
+      setTimeout(function () {
+        playOnce(AUDIO[secId + ":" + it.no]);
+        tapeLive(sec, i);
+      }, LEAD + i * gap);
+    });
+
+    setTimeout(function () {
+      state.audio[secId] = "done";
+      save();
+      var b2 = document.querySelector('[data-tape="' + secId + '"]');
+      if (b2) { b2.disabled = true; b2.textContent = "已播放完毕"; }
+      var l2 = document.querySelector('[data-tape-live="' + secId + '"]');
+      if (l2) l2.innerHTML = '<span style="color:#8a9099">本次音频已播放完毕，提交后可以重听。</span>';
+    }, LEAD + (n - 1) * gap + 1600);
+  }
+
+  /* ---------------- interactions ---------------- */
+  document.addEventListener("click", function (e) {
+    var cb2 = e.target.closest ? e.target.closest("[data-clip]") : null;
+    if (cb2) {
+      var sc = secById(cb2.dataset.clip);
+      if (sc && sc.audio) startClip(sc.id, sc.audio);
+      return;
+    }
+    var tb = e.target.closest ? e.target.closest("[data-tape]") : null;
+    if (tb) { startTape(tb.dataset.tape); return; }
+
+    var pb = e.target.closest ? e.target.closest("[data-replay]") : null;
+    if (pb) {
+      playOnce(AUDIO[pb.dataset.replay]);
+      pb.classList.add("playing");
+      setTimeout(function () { pb.classList.remove("playing"); }, 800);
+      return;
+    }
+
+    var opt = e.target.closest ? e.target.closest(".opt") : null;
+    if (opt) {
+      var sec = secById(opt.dataset.sec);
+      var item = sec.items.filter(function (i) { return String(i.no) === opt.dataset.no; })[0];
+      var a = ans(keyOf(sec, item));
+      a.choice = a.choice === opt.dataset.letter ? "" : opt.dataset.letter;
+      Array.prototype.forEach.call(opt.parentNode.children, function (c) { c.classList.remove("on"); });
+      if (a.choice) opt.classList.add("on");
+      save(); updateProgress();
+    }
+  });
+
+  document.addEventListener("input", function (e) {
+    var t = e.target;
+    if (t.id === "in-name") { state.info.name = t.value; save(); t.classList.remove("err"); return; }
+    if (t.id === "in-cls") { state.info.cls = t.value; save(); t.classList.remove("err"); return; }
+    if (!t.dataset || !t.dataset.f) return;
+    var k = t.dataset.sec + ":" + t.dataset.no;
+    ans(k)[t.dataset.f] = t.value;
+    if (t.dataset.f === "text") {
+      var c = document.querySelector('[data-count="' + k + '"]');
+      if (c) c.textContent = String(t.value).trim().length + " 字符";
+    }
+    save(); updateProgress();
+  });
+
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    if (!t.dataset || !t.dataset.f) return;
+    ans(t.dataset.sec + ":" + t.dataset.no)[t.dataset.f] = t.value;
+    save(); updateProgress();
+  });
+
+  /* ---------------- 判分 ---------------- */
+  function grade(answers) {
+    var A = answers || state.answers;
+    var res = { items: {}, secs: {}, total: 0, max: 0 };
+    QUIZ.sections.forEach(function (sec) {
+      var s = { score: 0, max: 0, right: 0, n: sec.items.length };
+      sec.items.forEach(function (it) {
+        var k = keyOf(sec, it);
+        var a = A[k] || {};
+        var key = (KEY[sec.id] || {})[it.no] || {};
+        var r = {};
+        if (sec.type === "pos_word") {
+          r.pos = !!(a.pos && key.pos && a.pos === key.pos);
+          r.meaning = meaningOK(a.meaning, key.meaning);
+          r.choice = !!(a.choice && a.choice === key.key);
+          r.score = (r.pos && r.meaning ? 1 : 0) + (r.choice ? 1 : 0);
+          s.score += r.score; s.max += 2; s.right += r.score;
+        } else if (sec.type === "listen_word") {
+          r.meaning = meaningOK(a.meaning, key.meaning);
+          r.choice = !!(a.choice && a.choice === key.key);
+          r.score = (r.meaning ? 1 : 0) + (r.choice ? 1 : 0);
+          s.score += r.score; s.max += 2; s.right += r.score;
+        } else if (sec.type === "notes") {
+          r.spell = textOK(a.text, key.answers);
+          r.score = r.spell ? 1 : 0;
+          s.score += r.score; s.max += 1; s.right += r.score;
+        } else if (sec.type === "dictation") {
+          r.spell = !!norm(a.text) && norm(a.text) === norm(key.word);
+          r.score = r.spell ? 1 : 0;
+          s.score += r.score; s.max += 1; s.right += r.score;
+        } else {
+          r.noscore = true;
+        }
+        r.key = key;
+        res.items[k] = r;
+      });
+      res.secs[sec.id] = s;
+      res.total += s.score; res.max += s.max;
+    });
+    return res;
+  }
+
+  function badge(ok, noScore) {
+    if (noScore) return '<span class="badge neutral">不计分</span>';
+    return ok ? '<span class="badge ok">对</span>' : '<span class="badge no">错</span>';
+  }
+
+  function fieldRow(label, mine, right, ok, showRight) {
+    var m = String(mine || "").trim();
+    var html = '<div class="rfield"><span class="lab">' + label + "</span>";
+    if (!m) html += '<span class="blank">（没作答）</span>';
+    else html += '<span class="' + (ok ? "right" : "wrong") + '">' + esc(m) + "</span>";
+    html += badge(ok);
+    if (showRight && !ok && String(right || "").trim()) html += '<span class="ans">正确：' + esc(right) + "</span>";
+    return html + "</div>";
+  }
+
+  function renderResult() {
+    var g = grade();
+    var p = {
+      name: (state.info.name || "").trim(),
+      cls: (state.info.cls || "").trim(),
+      submittedAt: state.submittedAt || Date.now(),
+      durationMs: (state.submittedAt || Date.now()) - state.startedAt
+    };
+    var L = ["A", "B", "C", "D"];
+    var out = [];
+
+    out.push('<div class="res-head">');
+    out.push('<div class="res-score">' + g.total + '<small> / ' + g.max + ' 分</small></div>');
+    out.push('<div class="res-meta">' + esc(p.name) + " · 教室 " + esc(p.cls) + " · 提交 " + fmtTime(p.submittedAt) + " · 用时 " + fmtDur(p.durationMs) + "</div>");
+    out.push('<div class="res-secs">');
+    QUIZ.sections.forEach(function (sec) {
+      var s = g.secs[sec.id];
+      var v = sec.type === "translate" ? "—" : s.score + " / " + s.max;
+      out.push('<div class="res-sec"><b>' + v + '</b><span>' + sec.no + "、" + esc(String(sec.title).split(" · ")[0]) + "</span></div>");
+    });
+    out.push("</div>");
+    out.push('<div class="res-sync" id="res-sync">' + (META.submitUrl ? "成绩已同步给老师" : "成绩已保存在本机，接入后台后会自动同步给老师") + "</div>");
+    out.push("</div>");
+
+    QUIZ.sections.forEach(function (sec) {
+      var s = g.secs[sec.id];
+      var head = sec.type === "translate" ? "不计分" : s.score + " / " + s.max;
+      out.push('<section class="rsec"><div class="rsec-head"><div class="sec-no">' + sec.no + "</div>" +
+        "<h3>" + esc(sec.title) + '</h3><div class="rsec-score">' + head + "</div></div>");
+
+      if (sec.type === "notes") {
+        sec.items.forEach(function (it) {
+          var k = keyOf(sec, it), r = g.items[k], a = state.answers[k] || {};
+          var kk = r.key || {};
+          out.push('<div class="ritem"><span class="rno">' + it.no + '</span><div class="rbody">');
+          out.push('<div class="rline"><span class="rpts">' + (r.spell ? "1" : "0") + " / 1 分</span></div>");
+          out.push(fieldRow("你的", a.text, (kk.answers || []).join(" / "), r.spell, true));
+          out.push("</div></div>");
+        });
+        out.push("</section>");
+        return;
+      }
+      if (sec.type === "dictation") {
+        out.push('<div class="rdict">');
+        sec.items.forEach(function (it) {
+          var k = keyOf(sec, it);
+          var r = g.items[k], a = state.answers[k] || {};
+          var kk = r.key || {};
+          out.push('<div class="rdict-cell ' + (r.spell ? "ok" : "bad") + '">');
+          out.push('<div class="rdc-top"><span class="no">' + it.no + "</span>" +
+            '<button type="button" class="icon-play" data-replay="' + k + '" aria-label="重听"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>' +
+            badge(r.spell) + "</div>");
+          var blankAns = !String(a.text || "").trim();
+          out.push('<div class="rdc-mine' + (blankAns ? " blank" : "") + '">' + (blankAns ? "（没写）" : esc(a.text)) + "</div>");
+          if (!r.spell) out.push('<div class="rdc-key">' + esc(kk.word) + "</div>");
+          out.push("</div>");
+        });
+        out.push("</div>");
+      } else if (sec.type === "translate") {
+        sec.items.forEach(function (it) {
+          var k = keyOf(sec, it);
+          var r = g.items[k], a = state.answers[k] || {};
+          out.push('<div class="ritem"><span class="rno">' + it.no + "</span><div class=\"rbody\">");
+          out.push('<div class="rfield"><span class="lab">题目</span><span class="quiet">' + esc(it.zh) + "</span></div>");
+          out.push('<div class="rfield"><span class="lab">你的</span><span class="mine">' + (String(a.text || "").trim() ? esc(a.text) : "（没写）") + "</span></div>");
+          out.push('<div class="rfield"><span class="lab">参考</span><span class="ans-line">' + esc((r.key || {}).ref || "") + "</span></div>");
+          out.push("</div></div>");
+        });
+      } else {
+        sec.items.forEach(function (it) {
+          var k = keyOf(sec, it);
+          var r = g.items[k], a = state.answers[k] || {};
+          var kk = r.key || {};
+          out.push('<div class="ritem"><span class="rno">' + it.no + "</span><div class=\"rbody\">");
+          if (sec.type === "pos_word") {
+            out.push('<div class="rline"><span class="rword">' + esc(it.word) + '</span><span class="rpts">本题 ' + r.score + " / 2 分</span></div>");
+            out.push(fieldRow("词性", a.pos, kk.pos, r.pos, true));
+            out.push(fieldRow("中文", a.meaning, kk.meaning, r.meaning, true));
+            out.push(fieldRow("同替", a.choice ? a.choice + ". " + (it.opts[L.indexOf(a.choice)] || "") : "",
+              kk.key ? kk.key + ". " + (it.opts[L.indexOf(kk.key)] || "") : "", r.choice, true));
+          } else {
+            out.push('<div class="rline"><button type="button" class="icon-play" data-replay="' + k + '" aria-label="重听"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>' +
+              '<span class="rpts">本题 ' + r.score + " / 2 分</span></div>");
+            out.push(fieldRow("中文", a.meaning, kk.meaning, r.meaning, true));
+            out.push(fieldRow("同替", a.choice ? a.choice + ". " + (it.opts[L.indexOf(a.choice)] || "") : "",
+              kk.key ? kk.key + ". " + (it.opts[L.indexOf(kk.key)] || "") : "", r.choice, true));
+          }
+          out.push("</div></div>");
+        });
+      }
+      out.push("</section>");
+    });
+
+
+    out.push('<p class="res-note">提交后 179 和语料库的音频可以自由重听，点每题左边的小三角即可。</p>');
+
+    byId("result").innerHTML = out.join("");
+    byId("quiz-root").style.display = "none";
+    byId("result-wrap").style.display = "block";
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------------- submit ---------------- */
+  function buildDetail(g) {
+    var L = ["A", "B", "C", "D"];
+    var secs = QUIZ.sections.map(function (sec) {
+      var items = sec.items.map(function (it) {
+        var k = keyOf(sec, it);
+        var a = state.answers[k] || {};
+        var key = (KEY[sec.id] || {})[it.no] || {};
+        var r = g.items[k] || {};
+        var o = { no: it.no };
+        if (it.word) o.word = it.word;
+        if (it.opts) o.opts = it.opts;
+        if (it.zh) o.zh = it.zh;
+        if (sec.type === "notes") o.label = "第" + it.no + "题";
+        o.mine = {
+          pos: a.pos || "",
+          meaning: a.meaning || "",
+          choice: a.choice ? a.choice + ". " + (it.opts ? (it.opts[L.indexOf(a.choice)] || "") : "") : "",
+          text: a.text || ""
+        };
+        o.ok = { pos: !!r.pos, meaning: !!r.meaning, choice: !!r.choice, spell: !!r.spell };
+        o.key = {
+          word: key.word || (key.answers || []).join(" / "),
+          pos: key.pos || "",
+          meaning: key.meaning || "",
+          choice: key.key ? key.key + ". " + (it.opts ? (it.opts[L.indexOf(key.key)] || "") : "") : "",
+          ref: key.ref || ""
+        };
+        o.score = r.score || 0;
+        o.max = sec.type === "translate" ? 0 : ((sec.type === "dictation" || sec.type === "notes") ? 1 : 2);
+        return o;
+      });
+      return { id: sec.id, no: sec.no, title: sec.title, type: sec.type, score: (g.secs[sec.id] || {}).score || 0, max: (g.secs[sec.id] || {}).max || 0, items: items };
+    });
+    return { sections: secs };
+  }
+
+  function missingList() {
+    var out = [];
+    QUIZ.sections.forEach(function (sec) {
+      sec.items.forEach(function (it) {
+        if (!itemsDone(sec, it)) out.push(sec.no + "、" + sec.title + " 第 " + it.no + " 题");
+      });
+    });
+    return out;
+  }
+  function openMask(id) { byId(id).classList.add("show"); }
+  function closeMask(id) { byId(id).classList.remove("show"); }
+
+  function askSubmit() {
+    var name = (state.info.name || "").trim();
+    var cls = (state.info.cls || "").trim();
+    if (!name) { byId("in-name").classList.add("err"); byId("in-name").focus(); return; }
+    if (!cls) { byId("in-cls").classList.add("err"); byId("in-cls").focus(); return; }
+
+    var miss = missingList();
+    var notPlayed = QUIZ.sections.filter(function (s) {
+      return (s.type === "listen_word" || s.type === "dictation") && (state.audio[s.id] || "idle") === "idle";
+    }).map(function (s) { return s.no + "、" + s.title; });
+
+    byId("ask-title").textContent = miss.length ? "还有 " + miss.length + " 题没做完" : "确认提交答卷？";
+    byId("ask-desc").textContent = miss.length
+      ? "下面这些题还是空的，提交后就能看到批改结果："
+      : "姓名 " + name + "，教室 " + cls + "。提交后立刻出成绩，并且可以重听音频。";
+    var box = byId("miss-box");
+    if (miss.length) {
+      box.style.display = "block";
+      box.innerHTML = miss.slice(0, 60).map(esc).join("　") +
+        (notPlayed.length ? '<div style="margin-top:8px;color:#8a5a12">另外，这些音频还没播放：' + esc(notPlayed.join("、")) + "</div>" : "");
+    } else {
+      box.style.display = notPlayed.length ? "block" : "none";
+      box.innerHTML = notPlayed.length ? '<span style="color:#8a5a12">这些音频还没播放：' + esc(notPlayed.join("、")) + "</span>" : "";
+    }
+    openMask("mask-ask");
+  }
+
+  function doSubmit() {
+    closeMask("mask-ask");
+    state.submitted = true;
+    state.submittedAt = Date.now();
+    state.info.name = (state.info.name || "").trim();
+    state.info.cls = (state.info.cls || "").trim();
+
+    var g = grade();
+    var payload = {
+      quiz: META.quizId,
+      title: META.title,
+      name: state.info.name,
+      cls: state.info.cls,
+      score: g.total,
+      max_score: g.max,
+      started_at: new Date(state.startedAt).toISOString(),
+      submitted_at: new Date(state.submittedAt).toISOString(),
+      duration_ms: state.submittedAt - state.startedAt,
+      answers: state.answers,
+      audio: state.audio,
+      detail: buildDetail(g)
+    };
+    try {
+      var list = JSON.parse(localStorage.getItem(SUBS) || "[]");
+      list.push(Object.assign({}, payload, { localSubmittedAt: payload.submitted_at }));
+      localStorage.setItem(SUBS, JSON.stringify(list));
+    } catch (e) {}
+    save();
+    renderResult();
+
+    var el = byId("res-sync");
+    if (META.relayUrl) {
+      // 国内中转（腾讯云函数）：学生不用 VPN 也能交
+      if (el) el.textContent = "正在同步成绩…";
+      fetch(META.relayUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (el) el.textContent = r.ok ? "成绩已同步给老师" : "同步失败（" + r.status + "），请把这一页截图发给老师";
+      }).catch(function () {
+        if (el) el.textContent = "网络异常，成绩没同步上，请把这一页截图发给老师";
+      });
+    } else if (META.supabaseUrl && META.supabaseAnonKey) {
+      var base = META.supabaseUrl.replace(/\/+$/, "").replace(/\/rest\/v1$/i, "");
+      var endpoint = base + "/rest/v1/submissions";
+      if (el) el.textContent = "正在同步成绩…";
+      var headers = {
+        "Content-Type": "application/json",
+        "apikey": META.supabaseAnonKey,
+        "Authorization": "Bearer " + META.supabaseAnonKey,
+        "Prefer": "return=minimal"
+      };
+      function post(body) {
+        return fetch(endpoint, { method: "POST", headers: headers, body: JSON.stringify(body) });
+      }
+      post(payload).then(function (r) {
+        if (r.ok) return r;
+        // 兜底：数据库还没加 detail 列时，退一步只交答案，保证学生不会白做
+        var slim = {};
+        Object.keys(payload).forEach(function (k) { if (k !== "detail") slim[k] = payload[k]; });
+        return post(slim);
+      }).then(function (r) {
+        if (el) el.textContent = r.ok ? "成绩已同步给老师" : "同步失败（" + r.status + "），请把这一页截图发给老师";
+      }).catch(function () {
+        if (el) el.textContent = "网络异常，成绩没同步上，请把这一页截图发给老师";
+      });
+    } else if (META.submitUrl) {
+      if (el) el.textContent = "正在同步成绩…";
+      fetch(META.submitUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (el) el.textContent = r.ok ? "成绩已同步给老师" : "同步失败，请联系老师";
+      }).catch(function () {
+        if (el) el.textContent = "网络异常，成绩暂时没同步，请联系老师";
+      });
+    }
+  }
+
+  /* ---------------- 教师端 ---------------- */
+  function answerText(sec, it, a) {
+    if (!a) return "";
+    if (sec.type === "pos_word") return (a.pos || "—") + " | " + (a.meaning || "—") + " | " + (a.choice || "—");
+    if (sec.type === "listen_word") return (a.meaning || "—") + " | " + (a.choice || "—");
+    return a.text || "";
+  }
+
+  function renderRecords() {
+    var list = [];
+    try { list = JSON.parse(localStorage.getItem(SUBS) || "[]"); } catch (e) {}
+    var body = byId("rec-body");
+    if (!list.length) {
+      body.innerHTML = '<tr><td colspan="5" style="color:#9aa1ac;padding:24px 8px">本机还没有提交记录。</td></tr>';
+      return;
+    }
+    body.innerHTML = list.slice().reverse().map(function (p) {
+      var g = grade(p.answers || {});
+      var detail = QUIZ.sections.map(function (sec) {
+        return "<b>" + sec.no + "</b> " + sec.items.map(function (it) {
+          return "<span style='color:#9aa1ac'>" + it.no + ".</span> " + esc(answerText(sec, it, (p.answers || {})[sec.id + ":" + it.no]));
+        }).join("　");
+      }).join("<br>");
+      return "<tr><td>" + fmtTime(p.submittedAt || p.submitted_at) + "</td><td><b>" + esc(p.name) + "</b></td><td>" + esc(p.cls) +
+        "</td><td><b>" + g.total + "</b> / " + g.max + '</td><td class="detail">' + detail + "</td></tr>";
+    }).join("");
+  }
+
+  function exportCSV() {
+    var list = [];
+    try { list = JSON.parse(localStorage.getItem(SUBS) || "[]"); } catch (e) {}
+    var head = ["提交时间", "姓名", "教室号", "用时(分钟)", "总分"];
+    QUIZ.sections.forEach(function (sec) {
+      sec.items.forEach(function (it) {
+        var p = sec.no + "-" + it.no;
+        if (sec.type === "pos_word") head.push(p + " 词性", p + " 中文", p + " 同替");
+        else if (sec.type === "listen_word") head.push(p + " 中文", p + " 同替");
+        else head.push(p + (sec.type === "translate" ? " 翻译" : " 拼写"));
+      });
+    });
+    var rows = [head];
+    list.forEach(function (p) {
+      var g = grade(p.answers || {});
+      var r = [fmtTime(p.submittedAt || p.submitted_at), p.name, p.cls, Math.round((p.durationMs || p.duration_ms || 0) / 60000), g.total];
+      QUIZ.sections.forEach(function (sec) {
+        sec.items.forEach(function (it) {
+          var a = (p.answers || {})[sec.id + ":" + it.no] || {};
+          if (sec.type === "pos_word") r.push(a.pos || "", a.meaning || "", a.choice || "");
+          else if (sec.type === "listen_word") r.push(a.meaning || "", a.choice || "");
+          else r.push(a.text || "");
+        });
+      });
+      rows.push(r);
+    });
+    var csv = rows.map(function (r) {
+      return r.map(function (c) { var s = String(c == null ? "" : c); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(",");
+    }).join("\r\n");
+    var blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "成绩_" + META.quizId + ".csv";
+    a.click();
+  }
+
+  function resetQuiz() {
+    if (!confirm("重新开始？会清空这台电脑上的作答、音频播放记录和提交状态，可以完整重做一遍。已提交的记录不会被删除。")) return;
+    try { localStorage.removeItem(STORE); } catch (e) {}
+    location.reload();
+  }
+
+  /* ---------------- boot ---------------- */
+  function boot() {
+    byId("h-title").textContent = META.title;
+    byId("h-brand").innerHTML = "<b>" + esc(META.brand) + "</b> · " + esc(META.course);
+    byId("h-sub").textContent = META.subtitle;
+    byId("chips").innerHTML =
+      '<span class="chip">共 <b>' + TOTAL + "</b> 题</span>" +
+      '<span class="chip">建议 <b>' + META.minutes + "</b> 分钟</span>" +
+      '<span class="chip"><b>' + QUIZ.sections.length + "</b> 个部分</span>";
+    byId("intro").textContent = META.intro;
+
+    QUIZ.sections.forEach(function (s) {
+      if (state.audio[s.id] === "running") state.audio[s.id] = "done";
+    });
+
+    byId("in-name").value = state.info.name || "";
+    byId("in-cls").value = state.info.cls || "";
+
+    renderSections();
+    updateProgress();
+
+    byId("snav").innerHTML = QUIZ.sections.map(function (s) {
+      var label = String(s.title).split(" · ")[0];
+      return '<a href="#sec-' + s.id + '">' + s.no + "、" + esc(label) + "</a>";
+    }).join("");
+
+    document.querySelectorAll(".snav a").forEach(function (a) {
+      a.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        var t = document.querySelector(a.getAttribute("href"));
+        if (t) window.scrollTo({ top: t.offsetTop - 56, behavior: "smooth" });
+      });
+    });
+
+    byId("btn-submit").addEventListener("click", askSubmit);
+    byId("btn-top").addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      askSubmit();
+    });
+    byId("ask-ok").addEventListener("click", doSubmit);
+    byId("ask-cancel").addEventListener("click", function () { closeMask("mask-ask"); });
+    var fp = byId("foot-preview");
+    if (fp) fp.addEventListener("click", function () { renderRecords(); openMask("mask-rec"); });
+    var rc = byId("rec-close");
+    if (rc) rc.addEventListener("click", function () { closeMask("mask-rec"); });
+    var rcsv = byId("rec-csv");
+    if (rcsv) rcsv.addEventListener("click", exportCSV);
+    if (META.build && byId("ver")) byId("ver").textContent = "版本 " + META.build;
+
+    if (state.submitted) renderResult();
+
+    if (/reset=1/.test(location.search)) {
+      try { localStorage.removeItem(STORE); } catch (e) {}
+      location.replace(location.pathname);
+      return;
+    }
+    if (/selftest/.test(location.search)) selftest();
+  }
+
+  function selftest() {
+    state.info.name = "测试同学";
+    state.info.cls = "308";
+    byId("in-name").value = state.info.name;
+    byId("in-cls").value = state.info.cls;
+    QUIZ.sections.forEach(function (sec) {
+      sec.items.forEach(function (it) {
+        var a = ans(keyOf(sec, it));
+        if (sec.type === "pos_word") { a.pos = "v."; a.meaning = "示例义项"; a.choice = "B"; }
+        if (sec.type === "listen_word") { a.meaning = "示例义项"; a.choice = "B"; }
+        if (sec.type === "dictation") { a.text = "spelling"; }
+        if (sec.type === "translate") { a.text = "This is a sample translation written by the test account."; }
+      });
+    });
+    renderSections();
+    updateProgress();
+    setTimeout(doSubmit, 300);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+
+</script>
+</body>
+</html>
